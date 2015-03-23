@@ -39,14 +39,24 @@
 
 #define BRICKLET_DEVICE_IDENTIFIER 253
 
+#define BOARD_MCK 64000000
+
+#define PIN_DAT (BS->pin1_ad)
+#define PIN_CLK (BS->pin2_da)
+#define PIN_RAT (BS->pin3_pwm)
+#define PIN_LED (BS->pin4_io)
+
 #define LOGGING_LEVEL LOGGING_DEBUG
 #define DEBUG_BRICKLET 0
 
+#define BRICKLET_VALUE_APPLIED_OUTSIDE
 #define SIMPLE_VALUE_TYPE uint32_t
 #define BRICKLET_NO_OFFSET
 #define BRICKLET_HAS_SIMPLE_SENSOR
 #define INVOCATION_IN_BRICKLET_CODE
 #define NUM_SIMPLE_VALUES 1
+#define MAX_MOVING_AVERAGE 40
+#define DEFAULT_MOVING_AVERAGE 4
 
 typedef struct {
 	int32_t value[NUM_SIMPLE_VALUES];
@@ -66,6 +76,20 @@ typedef struct {
 	char     threshold_option_save[NUM_SIMPLE_VALUES];
 
 	uint32_t tick;
+
+	int32_t moving_average[MAX_MOVING_AVERAGE];
+	uint32_t moving_average_sum;
+	uint8_t moving_average_tick;
+	uint8_t moving_average_upto;
+
+	int32_t last_adc_value;
+	uint32_t offset;
+	uint32_t gain_mul;
+	uint32_t gain_div;
+
+	uint8_t current_gain;
+	uint8_t current_rate;
+	bool led_value;
 } BrickContext;
 
 #endif
