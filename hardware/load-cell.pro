@@ -1,4 +1,4 @@
-update=Di 24 Mär 2015 18:09:23 CET
+update=Do 26 Mär 2015 18:33:57 CET
 version=1
 last_client=kicad
 [cvpcb]
@@ -35,7 +35,7 @@ BoardOutlineThickness=0.381
 ModuleOutlineThickness=0.381
 [eeschema]
 version=1
-LibDir=kicad-libraries
+LibDir=kicad-libraries.pretty
 [eeschema/libraries]
 LibName1=power
 LibName2=device
