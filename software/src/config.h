@@ -41,9 +41,9 @@
 
 #define BOARD_MCK 64000000
 
-#define PIN_DAT (BS->pin1_ad)
-#define PIN_CLK (BS->pin2_da)
-#define PIN_RAT (BS->pin3_pwm)
+#define PIN_RAT (BS->pin1_ad)
+#define PIN_DAT (BS->pin2_da)
+#define PIN_CLK (BS->pin3_pwm)
 #define PIN_LED (BS->pin4_io)
 
 #define LOGGING_LEVEL LOGGING_DEBUG
