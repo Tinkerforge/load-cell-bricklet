@@ -1,4 +1,4 @@
-update=Do 26 Mär 2015 18:33:57 CET
+update=Fr 17 Apr 2015 15:39:04 CEST
 version=1
 last_client=kicad
 [cvpcb]
@@ -68,3 +68,16 @@ LibName28=atmel
 LibName29=contrib
 LibName30=valves
 LibName31=/home/batti/tf/kicad-libraries.pretty/tinkerforge
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+RptD_X=0
+RptD_Y=100
+RptLab=1
+LabSize=60
