@@ -201,7 +201,7 @@ void reinitialize_moving_average(void) {
 }
 
 // The gcc 64 bit division implementation is bigger than 4kb and thus
-// does not fit an a Bricklet EEPROM. We implement our own slower but
+// does not fit on a Bricklet EEPROM. We implement our own slower but
 // more space efficient division.
 void div_64(uint64_t dividend, uint64_t divisor, uint64_t *result, uint64_t *remainder) {
 	*remainder = dividend;
@@ -236,8 +236,10 @@ void new_value(const int32_t value) {
 	}
 
 	int32_t offset_adc_value = BC->last_adc_value - BC->offset;
+	bool sign = true;
 	if(offset_adc_value < 0) {
-		offset_adc_value = 0;
+		sign = false;
+		offset_adc_value = -offset_adc_value;
 	}
 
 	// Use 64 bit arithmetic to calculate weight, this way we don't have to throw away precision
@@ -246,11 +248,20 @@ void new_value(const int32_t value) {
 	div_64(((uint64_t)(offset_adc_value))*((uint64_t)BC->gain_mul), BC->gain_div, &result, &remainder);
 
 	BC->last_value[0] = BC->value[0];
-	BC->value[0] = result;
 
-	// Round value up if necessary
-	if(remainder > BC->gain_div/2) {
-		BC->value[0]++;
+	if(sign) {
+		BC->value[0] = result;
+
+		// Round value up if necessary
+		if(remainder > BC->gain_div/2) {
+			BC->value[0]++;
+		}
+	} else {
+		BC->value[0] = -result;
+		// Round value down if necessary
+		if(remainder > BC->gain_div/2) {
+			BC->value[0]--;
+		}
 	}
 }
 
