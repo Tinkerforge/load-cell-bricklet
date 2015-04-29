@@ -204,6 +204,10 @@ void reinitialize_moving_average(void) {
 // does not fit on a Bricklet EEPROM. We implement our own slower but
 // more space efficient division.
 void div_64(uint64_t dividend, uint64_t divisor, uint64_t *result, uint64_t *remainder) {
+	if(dividend == 0) {
+		return;
+	}
+
 	*remainder = dividend;
 	*result = 0;
 	uint64_t mask = 1;
@@ -243,8 +247,8 @@ void new_value(const int32_t value) {
 	}
 
 	// Use 64 bit arithmetic to calculate weight, this way we don't have to throw away precision
-	uint64_t result;
-	uint64_t remainder;
+	uint64_t result = 0;
+	uint64_t remainder = 0;
 	div_64(((uint64_t)(offset_adc_value))*((uint64_t)BC->gain_mul), BC->gain_div, &result, &remainder);
 
 	BC->last_value[0] = BC->value[0];
@@ -353,6 +357,9 @@ void get_configuration(const ComType com, const GetConfiguration *data) {
 
 void write_calibration_to_eeprom(void) {
 	uint32_t cal[4] = {BC->offset, BC->gain_mul, BC->gain_div, 0xDEADBEEF};
+	if(BC->gain_div == 0) {
+		cal[2] = 1;
+	}
 
 	BA->bricklet_select(BS->port - 'a');
 	BA->i2c_eeprom_master_write(BA->twid->pTwi,
@@ -375,6 +382,11 @@ void read_calibration_from_eeprom(void) {
 		BC->offset = cal[0];
 		BC->gain_mul = cal[1];
 		BC->gain_div = cal[2];
+		if(BC->gain_div == 0) {
+			BC->offset = 0;
+			BC->gain_mul = 1;
+			BC->gain_div = 1;
+		}
 	}
 }
 
