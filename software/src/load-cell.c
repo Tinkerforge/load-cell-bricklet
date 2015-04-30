@@ -298,12 +298,16 @@ void led_on(const ComType com, const LEDOn *data) {
 	BC->led_value = true;
 	PIN_LED.type = PIO_OUTPUT_0;
 	BA->PIO_Configure(&PIN_LED, 1);
+
+	BA->com_return_setter(com, data);
 }
 
 void led_off(const ComType com, const LEDOff *data) {
 	BC->led_value = false;
 	PIN_LED.type = PIO_OUTPUT_1;
 	BA->PIO_Configure(&PIN_LED, 1);
+
+	BA->com_return_setter(com, data);
 }
 
 void is_led_on(const ComType com, const IsLEDOn *data) {
@@ -330,6 +334,8 @@ void calibrate(const ComType com, const Calibrate *data) {
 	}
 
 	write_calibration_to_eeprom();
+
+	BA->com_return_setter(com, data);
 }
 
 void set_configuration(const ComType com, const SetConfiguration *data) {
@@ -343,6 +349,8 @@ void set_configuration(const ComType com, const SetConfiguration *data) {
 
 	write_configuration_to_eeprom();
 	update_rate();
+
+	BA->com_return_setter(com, data);
 }
 
 void get_configuration(const ComType com, const GetConfiguration *data) {
