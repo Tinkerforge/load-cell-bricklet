@@ -92,6 +92,11 @@ void invocation(const ComType com, const uint8_t *data) {
 			break;
 		}
 
+		case FID_TARE: {
+			tare(com, (Tare*)data);
+			break;
+		}
+
 		case FID_SET_CONFIGURATION: {
 			set_configuration(com, (SetConfiguration*)data);
 			break;
@@ -134,6 +139,7 @@ void constructor(void) {
 	BC->current_gain = GAIN_128X;
 	BC->current_rate = RATE_10HZ;
 	BC->led_value = false;
+	BC->tare_value = 0;
 
 	reinitialize_moving_average();
 	read_calibration_from_eeprom();
@@ -267,6 +273,8 @@ void new_value(const int32_t value) {
 			BC->value[0]--;
 		}
 	}
+
+	BC->value[0] += BC->tare_value;
 }
 
 void set_moving_average(const ComType com, const SetMovingAverage *data) {
@@ -334,6 +342,12 @@ void calibrate(const ComType com, const Calibrate *data) {
 	}
 
 	write_calibration_to_eeprom();
+
+	BA->com_return_setter(com, data);
+}
+
+void tare(const ComType com, const Tare *data) {
+	BC->tare_value += -BC->value[0];
 
 	BA->com_return_setter(com, data);
 }

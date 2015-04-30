@@ -48,10 +48,11 @@
 #define FID_LED_OFF 11
 #define FID_IS_LED_ON 12
 #define FID_CALIBRATE 13
-#define FID_SET_CONFIGURATION 14
-#define FID_GET_CONFIGURATION 15
-#define FID_WEIGHT 16
-#define FID_WEIGHT_REACHED 17
+#define FID_TARE 14
+#define FID_SET_CONFIGURATION 15
+#define FID_GET_CONFIGURATION 16
+#define FID_WEIGHT 17
+#define FID_WEIGHT_REACHED 18
 
 typedef struct {
 	MessageHeader header;
@@ -91,6 +92,10 @@ typedef struct {
 
 typedef struct {
 	MessageHeader header;
+} __attribute__((__packed__)) Tare;
+
+typedef struct {
+	MessageHeader header;
 	uint8_t rate;
 	uint8_t gain;
 } __attribute__((__packed__)) SetConfiguration;
@@ -108,6 +113,7 @@ typedef struct {
 void set_moving_average(const ComType com, const SetMovingAverage *data);
 void get_moving_average(const ComType com, const GetMovingAverage *data);
 void calibrate(const ComType com, const Calibrate *data);
+void tare(const ComType com, const Tare *data);
 void set_configuration(const ComType com, const SetConfiguration *data);
 void get_configuration(const ComType com, const GetConfiguration *data);
 void led_on(const ComType com, const LEDOn *data);

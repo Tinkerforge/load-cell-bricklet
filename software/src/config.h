@@ -87,6 +87,8 @@ typedef struct {
 	uint32_t gain_mul;
 	uint32_t gain_div;
 
+	int32_t tare_value;
+
 	uint8_t current_gain;
 	uint8_t current_rate;
 	bool led_value;
