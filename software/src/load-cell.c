@@ -166,9 +166,14 @@ void tick(const uint8_t tick_type) {
 		if(!(PIN_DAT.pio->PIO_PDSR & PIN_DAT.mask)) {
 			SLEEP_NS(100); // Wait 0.1us before first clock edge (see hx711 datasheet page 5, T_1)
 
-			uint32_t value = 0;
+			int32_t value = 0;
 			for(uint8_t i = 0; i < 24; i++) {
 				value |= clock_one_bit() << (23-i);
+			}
+
+			// 24 bit twos complement -> 32 bit twos complement
+			if(value & 0x800000) {
+				value |= 0xFF000000;
 			}
 			value = (1 << 24) - value;
 
@@ -241,9 +246,6 @@ void new_value(const int32_t value) {
 	BC->moving_average_tick = (BC->moving_average_tick + 1) % BC->moving_average_upto;
 
 	BC->last_adc_value = (BC->moving_average_sum + BC->moving_average_upto/2)/BC->moving_average_upto;
-	if(BC->last_adc_value < 0) {
-		BC->last_adc_value = 0;
-	}
 
 	int32_t offset_adc_value = BC->last_adc_value - BC->offset;
 	bool sign = true;
