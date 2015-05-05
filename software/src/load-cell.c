@@ -215,7 +215,9 @@ void reinitialize_moving_average(void) {
 // does not fit on a Bricklet EEPROM. We implement our own slower but
 // more space efficient division.
 void div_64(uint64_t dividend, uint64_t divisor, uint64_t *result, uint64_t *remainder) {
-	if(dividend == 0) {
+	if(dividend == 0 || divisor == 0) {
+		*result = 0;
+		*remainder = 0;
 		return;
 	}
 
