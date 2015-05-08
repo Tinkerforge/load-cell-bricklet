@@ -261,8 +261,6 @@ void new_value(const int32_t value) {
 	uint64_t remainder = 0;
 	div_64(((uint64_t)(offset_adc_value))*((uint64_t)BC->gain_mul), BC->gain_div, &result, &remainder);
 
-	BC->last_value[0] = BC->value[0];
-
 	if(sign) {
 		BC->value[0] = result;
 
