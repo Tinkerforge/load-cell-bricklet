@@ -8,7 +8,7 @@
 #define UID "XYZ" // Change to your UID
 
 // Callback function for weight callback (parameter has unit g/10)
-void cb_weight(uint16_t weight, void *user_data) {
+void cb_weight(int32_t weight, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
 	printf("Weight: %f kg\n", weight/1000.0);

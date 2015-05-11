@@ -1,0 +1,33 @@
+Needs["NETLink`"]
+LoadNETAssembly["Tinkerforge",NotebookDirectory[]<>"../../.."]
+
+host="localhost"
+port=4223
+uid="amb"(* Change to your UID *)
+
+(* Create IPConnection and device object *)
+ipcon=NETNew["Tinkerforge.IPConnection"]
+lc=NETNew["Tinkerforge.BrickletLoadCell",uid,ipcon]
+ipcon@Connect[host,port]
+
+(* Get threshold callbacks with a debounce time of 10 seconds (10000ms) *)
+lc@SetDebouncePeriod[10000]
+
+(* Callback for weight greater than 200 g *)
+WeightReachedCB[sender_,weight_]:=
+ Module[{},
+  Print["Weight: "<>ToString[N[Quantity[weight,"g"]]]<>"."];
+ ]
+
+AddEventHandler[lc@WeightReached,WeightReachedCB]
+
+(* Configure threshold for "greater than 200 g" *)
+option=Tinkerforge`BrickletLoadCell`THRESHOLDUOPTIONUGREATER
+lc@SetWeightCallbackThreshold[option,200,0]
+
+Input["Click OK to exit"]
+
+(* Clean up *)
+ipcon@Disconnect[]
+ReleaseNETObject[lc]
+ReleaseNETObject[ipcon]
