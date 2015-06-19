@@ -34,7 +34,7 @@
                 var lc = new Tinkerforge.BrickletLoadCell(UID, ipcon); // Create device object
                 ipcon.connect(HOST, PORT,
                     function(error) {
-                        textArea.value += 'Error: '+error+ '\n';
+                        textArea.value += 'Error: ' + error + '\n';
                     }
                 ); // Connect to brickd
                 // Don't use device before ipcon is connected
@@ -51,8 +51,7 @@
                 lc.on(Tinkerforge.BrickletLoadCell.CALLBACK_WEIGHT,
                     // Callback function for weight callback (parameter has unit g)
                     function(weight) {
-                        textArea.value += 'Weight: '+weight/1000+' kg';
-                        textArea.value += '\n';
+                        textArea.value += 'Weight: ' + weight/1000 + ' kg';
                         textArea.scrollTop = textArea.scrollHeight;
                     }
                 );

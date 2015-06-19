@@ -1,0 +1,132 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      4149,        123]
+NotebookOptionsPosition[      3875,        109]
+NotebookOutlinePosition[      4214,        124]
+CellTagsIndexPosition[      4171,        121]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{"Needs", "[", "\"\<NETLink`\>\"", "]"}], "\n", 
+ RowBox[{"LoadNETAssembly", "[", 
+  RowBox[{"\"\<Tinkerforge\>\"", ",", 
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<../../..\>\""}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.6436902924280033`*^9, 3.6436902967914953`*^9}, {
+  3.643690350770664*^9, 3.643690386207953*^9}, {3.6436904479760647`*^9, 
+  3.6436904497577677`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"host", "=", "\"\<localhost\>\""}], "\n", 
+ RowBox[{"port", "=", "4223"}], "\n", 
+ RowBox[{
+  RowBox[{"uid", "=", "\"\<XYZ\>\""}], 
+  RowBox[{"(*", " ", 
+   RowBox[{"Change", " ", "to", " ", "your", " ", "UID"}], " ", "*)"}], "\n", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Create", " ", "IPConnection", " ", "and", " ", "device", " ", "object"}], 
+   " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ipcon", "=", 
+  RowBox[{"NETNew", "[", "\"\<Tinkerforge.IPConnection\>\"", "]"}]}], "\n", 
+ RowBox[{"lc", "=", 
+  RowBox[{"NETNew", "[", 
+   RowBox[{"\"\<Tinkerforge.BrickletLoadCell\>\"", ",", "uid", ",", "ipcon"}],
+    "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"ipcon", "@", 
+   RowBox[{"Connect", "[", 
+    RowBox[{"host", ",", "port"}], "]"}]}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Set", " ", "Period", " ", "for", " ", "weight", " ", "callback", " ", 
+    "to", " ", "1", "s", " ", 
+    RowBox[{"(", 
+     RowBox[{"1000", "ms"}], ")"}]}], " ", "*)"}], "\n", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Note", ":", " ", 
+    RowBox[{
+    "The", " ", "weight", " ", "callback", " ", "is", " ", "only", " ", 
+     "called", " ", "every", " ", "second", " ", "if", " ", "the"}]}], " ", 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", "       ", 
+   RowBox[{
+   "weight", " ", "has", " ", "changed", " ", "since", " ", "the", " ", 
+    "last", " ", 
+    RowBox[{"call", "!"}]}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"lc", "@", 
+   RowBox[{"SetWeightCallbackPeriod", "[", "1000", "]"}]}], "\n", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Callback", " ", "function", " ", "for", " ", "weight", " ", "callback", 
+    " ", 
+    RowBox[{"(", 
+     RowBox[{"parameter", " ", "has", " ", "unit", " ", "g"}], ")"}]}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"WeightCB", "[", 
+   RowBox[{"sender_", ",", "weight_"}], "]"}], ":=", "\[IndentingNewLine]", 
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<Weight: \>\"", "<>", 
+    RowBox[{"ToString", "[", 
+     RowBox[{"N", "[", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"weight", ",", "\"\<g\>\""}], "]"}], "]"}], "]"}]}], 
+   "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"AddEventHandler", "[", 
+   RowBox[{
+    RowBox[{"lc", "@", "Weight"}], ",", "WeightCB"}], "]"}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{"Input", "[", "\"\<Click OK to exit\>\"", "]"}], "\n", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Clean", " ", "up"}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ipcon", "@", 
+  RowBox[{"Disconnect", "[", "]"}]}], "\n", 
+ RowBox[{"ReleaseNETObject", "[", "lc", "]"}], "\n", 
+ RowBox[{"ReleaseNETObject", "[", "ipcon", "]"}]}], "Input",
+ CellChangeTimes->{{3.643690300431685*^9, 3.643690344655931*^9}, {
+  3.6436904508915157`*^9, 3.643690458581874*^9}}]
+},
+WindowSize->{1390, 877},
+WindowMargins->{{Automatic, 195}, {57, Automatic}},
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 424, 9, 55, "Input"],
+Cell[984, 31, 2887, 76, 561, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

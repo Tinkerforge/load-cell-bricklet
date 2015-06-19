@@ -14,7 +14,7 @@ int main() {
 
 	// Create device object
 	LoadCell lc;
-	load_cell_create(&lc, UID, &ipcon); 
+	load_cell_create(&lc, UID, &ipcon);
 
 	// Connect to brickd
 	if(ipcon_connect(&ipcon, HOST, PORT) < 0) {

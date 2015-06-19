@@ -27,5 +27,5 @@ end
 
 % Callback for weight greater than 200 g
 function cb_reached(e)
-    fprintf('Weight: %g kg.\n', e.weight/1000.0);
+    fprintf('Weight: %g kg\n', e.weight/1000.0);
 end

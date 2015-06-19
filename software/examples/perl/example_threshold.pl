@@ -1,4 +1,4 @@
-#!/usr/bin/perl  
+#!/usr/bin/perl
 
 use Tinkerforge::IPConnection;
 use Tinkerforge::BrickletLoadCell;
@@ -15,7 +15,7 @@ sub cb_reached
 {
     my ($weight) = @_;
 
-    print "Weight ".$weight/1000.0." kg\n";
+    print "Weight: ".$weight/1000.0." kg\n";
 }
 
 $ipcon->connect(&HOST, &PORT); # Connect to brickd

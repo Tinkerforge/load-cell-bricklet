@@ -8,9 +8,9 @@ UID = "XYZ" # Change to your UID
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_load_cell import LoadCell
 
-# Turn LED on if weight is greater than 200 grams
-def cb_reached(lc, weight):
-    lc.led_on()
+# Callback for weight greater than 200 g
+def cb_reached(weight):
+    print('Weight: ' + str(weight/1000.0) + ' kg')
 
 if __name__ == "__main__":
     ipcon = IPConnection() # Create IP connection
@@ -23,10 +23,9 @@ if __name__ == "__main__":
     lc.set_debounce_period(1000)
 
     # Register threshold reached callback to function cb_reached
-    func = lambda x: cb_reached(lc, x)
-    lc.register_callback(lc.CALLBACK_WEIGHT_REACHED, func)
+    lc.register_callback(lc.CALLBACK_WEIGHT_REACHED, cb_reached)
 
-    # Configure threshold for "greater than 200 grams"
+    # Configure threshold for "greater than 200 g"
     lc.set_weight_callback_threshold('>', 200, 0)
 
     raw_input('Press key to exit\n') # Use input() in Python 3

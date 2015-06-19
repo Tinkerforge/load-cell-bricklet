@@ -15,10 +15,10 @@ if __name__ == "__main__":
     ipcon.connect(HOST, PORT) # Connect to brickd
     # Don't use device before ipcon is connected
 
-    # Get current weight (unit is grams)
-    weight = lc.get_weight()
+    # Get current weight (unit is g)
+    weight = lc.get_weight()/1000.0
 
-    print('Weight: ' + str(weight) + ' g')
+    print('Weight: ' + str(weight) + ' kg')
 
     raw_input('Press key to exit\n') # Use input() in Python 3
     ipcon.disconnect()

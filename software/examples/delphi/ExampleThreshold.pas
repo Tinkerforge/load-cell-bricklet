@@ -27,7 +27,7 @@ var
 { Callback for weight greater than 200 g }
 procedure TExample.ReachedCB(sender: TBrickletLoadCell; const weight: LongInt);
 begin
-  WriteLn(Format('Weight %f kg.', [weight/1000.0]));
+  WriteLn(Format('Weight: %f kg', [weight/1000.0]));
 end;
 
 procedure TExample.Execute;

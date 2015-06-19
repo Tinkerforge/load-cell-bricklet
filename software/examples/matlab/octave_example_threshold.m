@@ -1,6 +1,6 @@
 function octave_example_threshold()
     more off;
-    
+
     HOST = "localhost";
     PORT = 4223;
     UID = "amb"; % Change to your UID
@@ -16,7 +16,7 @@ function octave_example_threshold()
 
     % Configure threshold for "greater than 200 g"
     lc.setWeightCallbackThreshold(lc.THRESHOLD_OPTION_GREATER, 200, 0);
-    
+
     % Register threshold reached callback to function cb_reached
     lc.addWeightReachedCallback(@cb_reached);
 
@@ -26,5 +26,5 @@ end
 
 % Callback function for weight callback (parameter has unit g)
 function cb_reached(e)
-    fprintf("Weight %g kg.\n", e.weight/1000.0);
+    fprintf("Weight: %g kg\n", e.weight/1000.0);
 end

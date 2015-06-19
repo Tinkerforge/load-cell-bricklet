@@ -1,0 +1,125 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      3942,        116]
+NotebookOptionsPosition[      3669,        102]
+NotebookOutlinePosition[      4007,        117]
+CellTagsIndexPosition[      3964,        114]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{"Needs", "[", "\"\<NETLink`\>\"", "]"}], "\n", 
+ RowBox[{"LoadNETAssembly", "[", 
+  RowBox[{"\"\<Tinkerforge\>\"", ",", 
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<../../..\>\""}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.643690604350607*^9, 3.6436906074881077`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"host", "=", "\"\<localhost\>\""}], "\n", 
+ RowBox[{"port", "=", "4223"}], "\n", 
+ RowBox[{
+  RowBox[{"uid", "=", "\"\<XYZ\>\""}], 
+  RowBox[{"(*", " ", 
+   RowBox[{"Change", " ", "to", " ", "your", " ", "UID"}], " ", "*)"}], "\n", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Create", " ", "IPConnection", " ", "and", " ", "device", " ", "object"}], 
+   " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ipcon", "=", 
+  RowBox[{"NETNew", "[", "\"\<Tinkerforge.IPConnection\>\"", "]"}]}], "\n", 
+ RowBox[{"lc", "=", 
+  RowBox[{"NETNew", "[", 
+   RowBox[{"\"\<Tinkerforge.BrickletLoadCell\>\"", ",", "uid", ",", "ipcon"}],
+    "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"ipcon", "@", 
+   RowBox[{"Connect", "[", 
+    RowBox[{"host", ",", "port"}], "]"}]}], "\[IndentingNewLine]", "\n", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Get", " ", "threshold", " ", "callbacks", " ", "with", " ", "a", " ", 
+    "debounce", " ", "time", " ", "of", " ", "10", " ", "seconds", " ", 
+    RowBox[{"(", 
+     RowBox[{"10000", "ms"}], ")"}]}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"lc", "@", 
+   RowBox[{"SetDebouncePeriod", "[", "10000", "]"}]}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Callback", " ", "for", " ", "weight", " ", "greater", " ", "than", " ", 
+    "200", " ", "g"}], " ", "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{"WeightReachedCB", "[", 
+   RowBox[{"sender_", ",", "weight_"}], "]"}], ":=", "\[IndentingNewLine]", 
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<Weight: \>\"", "<>", 
+    RowBox[{"ToString", "[", 
+     RowBox[{"N", "[", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"weight", ",", "\"\<g\>\""}], "]"}], "]"}], "]"}]}], 
+   "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"AddEventHandler", "[", 
+   RowBox[{
+    RowBox[{"lc", "@", "WeightReached"}], ",", "WeightReachedCB"}], "]"}], 
+  "\[IndentingNewLine]", "\n", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Configure", " ", "threshold", " ", "for", " ", 
+    "\"\<greater than 200 g\>\""}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"option", "=", 
+  "Tinkerforge`BrickletLoadCell`THRESHOLDUOPTIONUGREATER"}], "\n", 
+ RowBox[{
+  RowBox[{"lc", "@", 
+   RowBox[{"SetWeightCallbackThreshold", "[", 
+    RowBox[{"option", ",", "200", ",", "0"}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{"Input", "[", "\"\<Click OK to exit\>\"", "]"}], 
+  "\[IndentingNewLine]", "\n", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Clean", " ", "up"}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ipcon", "@", 
+  RowBox[{"Disconnect", "[", "]"}]}], "\n", 
+ RowBox[{"ReleaseNETObject", "[", "lc", "]"}], "\n", 
+ RowBox[{"ReleaseNETObject", "[", "ipcon", "]"}]}], "Input",
+ CellChangeTimes->{{3.643690610165655*^9, 3.643690654544404*^9}}]
+},
+WindowSize->{952, 872},
+WindowMargins->{{Automatic, 452}, {59, Automatic}},
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 320, 7, 55, "Input"],
+Cell[880, 29, 2785, 71, 605, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

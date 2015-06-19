@@ -13,7 +13,7 @@ const UID = 'XYZ'; // Change to your UID
 // Callback for weight greater than 200 g
 function cb_reached($weight)
 {
-    echo "Weight " . $weight / 1000.0 . " kg.\n";
+    echo "Weight: " . $weight / 1000.0 . " kg\n";
 }
 
 $ipcon = new IPConnection(); // Create IP connection

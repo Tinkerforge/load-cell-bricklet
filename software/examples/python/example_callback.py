@@ -8,9 +8,9 @@ UID = "XYZ" # Change to your UID
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_load_cell import LoadCell
 
-# Callback function for weight callback (parameter has unit grams)
+# Callback function for weight callback (parameter has unit g)
 def cb_weight(weight):
-    print('Weight: ' + str(weight) + ' g')
+    print('Weight: ' + str(weight/1000.0) + ' kg')
 
 if __name__ == "__main__":
     ipcon = IPConnection() # Create IP connection

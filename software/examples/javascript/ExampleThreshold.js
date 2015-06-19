@@ -27,7 +27,7 @@ ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
 lc.on(Tinkerforge.BrickletLoadCell.CALLBACK_WEIGHT_REACHED,
     // Callback for weight greater than 200 g
     function(weight) {
-        console.log('Weight: ' +weight/1000 + ' kg.');
+        console.log('Weight: ' + weight/1000 + ' kg');
     }
 );
 

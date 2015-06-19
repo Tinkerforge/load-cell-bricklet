@@ -9,10 +9,10 @@ class Example
 	// Callback for weight greater than 200 g
 	static void ReachedCB(BrickletLoadCell sender, int weight)
 	{
-		System.Console.WriteLine("Weight " + weight/1000.0 + " kg.");
+		System.Console.WriteLine("Weight: " + weight/1000.0 + " kg");
 	}
 
-	static void Main() 
+	static void Main()
 	{
 		IPConnection ipcon = new IPConnection(); // Create IP connection
 		BrickletLoadCell dd = new BrickletLoadCell(UID, ipcon); // Create device object

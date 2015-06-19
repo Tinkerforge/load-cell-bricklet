@@ -7,7 +7,7 @@
 #define PORT 4223
 #define UID "XYZ" // Change to your UID
 
-// Callback function for weight callback (parameter has unit g/10)
+// Callback function for weight callback (parameter has unit g)
 void cb_weight(int32_t weight, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
@@ -21,7 +21,7 @@ int main() {
 
 	// Create device object
 	LoadCell lc;
-	load_cell_create(&lc, UID, &ipcon); 
+	load_cell_create(&lc, UID, &ipcon);
 
 	// Connect to brickd
 	if(ipcon_connect(&ipcon, HOST, PORT) < 0) {
@@ -31,7 +31,7 @@ int main() {
 	// Don't use device before ipcon is connected
 
 	// Set Period for weight callback to 1s (1000ms)
-	// Note: The weight callback is only called every second if the 
+	// Note: The weight callback is only called every second if the
 	//       weight has changed since the last call!
 	load_cell_set_weight_callback_period(&lc, 1000);
 

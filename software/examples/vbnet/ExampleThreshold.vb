@@ -7,7 +7,7 @@ Module ExampleThreshold
 
     ' Callback for weight greater than 200 g
     Sub ReachedCB(ByVal sender As BrickletLoadCell, ByVal weight As Integer)
-        System.Console.WriteLine("Weight " + (weight/1000.0).ToString() + " kg.")
+        System.Console.WriteLine("Weight: " + (weight/1000.0).ToString() + " kg")
     End Sub
 
     Sub Main()

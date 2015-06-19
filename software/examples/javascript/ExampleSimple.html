@@ -34,7 +34,7 @@
                 var lc = new Tinkerforge.BrickletLoadCell(UID, ipcon); // Create device object
                 ipcon.connect(HOST, PORT,
                     function(error) {
-                        textArea.value += 'Error: '+error+ '\n';
+                        textArea.value += 'Error: ' + error + '\n';
                     }
                 ); // Connect to brickd
                 // Don't use device before ipcon is connected
@@ -44,10 +44,10 @@
                         // Get current weight (unit is g)
                         lc.getWeight(
                             function(weight) {
-                                textArea.value += 'Weight: '+weight/1000+' kg\n';
+                                textArea.value += 'Weight: ' + weight/1000 + ' kg\n';
                             },
                             function(error) {
-                                textArea.value += 'Error: '+error+'\n';
+                                textArea.value += 'Error: ' + error + '\n';
                             }
                         );
                     }

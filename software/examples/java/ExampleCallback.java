@@ -16,7 +16,7 @@ public class ExampleCallback {
 		// Don't use device before ipcon is connected
 
 		// Set Period for weight callback to 1s (1000ms)
-		// Note: The weight callback is only called every second if the 
+		// Note: The weight callback is only called every second if the
 		//       weight has changed since the last call!
 		lc.setWeightCallbackPeriod(1000);
 

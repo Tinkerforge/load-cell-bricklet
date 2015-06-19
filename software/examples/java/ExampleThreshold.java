@@ -21,11 +21,11 @@ public class ExampleThreshold {
 		// Configure threshold for "greater than 200 g"
 		lc.setWeightCallbackThreshold('>', 200, 0);
 
-		// Add and implement weight reached listener 
+		// Add and implement weight reached listener
 		// (called if weight is greater than 200 g)
 		lc.addWeightReachedListener(new BrickletLoadCell.WeightReachedListener() {
 			public void weightReached(int weight) {
-				System.out.println("Weight: " + weight/1000.0 + " kg.");
+				System.out.println("Weight: " + weight/1000.0 + " kg");
 			}
 		});
 
