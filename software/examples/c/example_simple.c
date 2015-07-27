@@ -26,7 +26,7 @@ int main() {
 	// Get current weight (unit is g)
 	int32_t weight;
 	if(load_cell_get_weight(&lc, &weight) < 0) {
-		fprintf(stderr, "Could not get value, probably timeout\n");
+		fprintf(stderr, "Could not get weight, probably timeout\n");
 		exit(1);
 	}
 

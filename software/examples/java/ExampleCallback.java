@@ -1,5 +1,5 @@
-import com.tinkerforge.BrickletLoadCell;
 import com.tinkerforge.IPConnection;
+import com.tinkerforge.BrickletLoadCell;
 
 public class ExampleCallback {
 	private static final String HOST = "localhost";
@@ -15,12 +15,12 @@ public class ExampleCallback {
 		ipcon.connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Set Period for weight callback to 1s (1000ms)
-		// Note: The weight callback is only called every second if the
-		//       weight has changed since the last call!
+		// Set period for weight callback to 1s (1000ms)
+		// Note: The weight callback is only called every second
+		//       if the weight has changed since the last call!
 		lc.setWeightCallbackPeriod(1000);
 
-		// Add and implement weight listener (called if weight changes)
+		// Add weight listener (parameter has unit g)
 		lc.addWeightListener(new BrickletLoadCell.WeightListener() {
 			public void weight(int weight) {
 				System.out.println("Weight: " + weight/1000.0 + " kg");

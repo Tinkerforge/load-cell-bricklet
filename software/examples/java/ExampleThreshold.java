@@ -1,5 +1,5 @@
-import com.tinkerforge.BrickletLoadCell;
 import com.tinkerforge.IPConnection;
+import com.tinkerforge.BrickletLoadCell;
 
 public class ExampleThreshold {
 	private static final String HOST = "localhost";
@@ -15,14 +15,13 @@ public class ExampleThreshold {
 		ipcon.connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Get threshold callbacks with a debounce time of 10 seconds (10000ms)
-		lc.setDebouncePeriod(10000);
+		// Get threshold callbacks with a debounce time of 1 second (1000ms)
+		lc.setDebouncePeriod(1000);
 
-		// Configure threshold for "greater than 200 g"
-		lc.setWeightCallbackThreshold('>', 200, 0);
+		// Configure threshold for "greater than 2 kg" (unit is g)
+		lc.setWeightCallbackThreshold('>', 2*1000, 0);
 
-		// Add and implement weight reached listener
-		// (called if weight is greater than 200 g)
+		// Add threshold reached listener for weight greater than 2 kg (parameter has unit g)
 		lc.addWeightReachedListener(new BrickletLoadCell.WeightReachedListener() {
 			public void weightReached(int weight) {
 				System.out.println("Weight: " + weight/1000.0 + " kg");

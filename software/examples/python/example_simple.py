@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-  
+# -*- coding: utf-8 -*-
 
 HOST = "localhost"
 PORT = 4223
@@ -16,9 +16,8 @@ if __name__ == "__main__":
     # Don't use device before ipcon is connected
 
     # Get current weight (unit is g)
-    weight = lc.get_weight()/1000.0
-
-    print('Weight: ' + str(weight) + ' kg')
+    weight = lc.get_weight()
+    print('Weight: ' + str(weight/1000.0) + ' kg')
 
     raw_input('Press key to exit\n') # Use input() in Python 3
     ipcon.disconnect()
