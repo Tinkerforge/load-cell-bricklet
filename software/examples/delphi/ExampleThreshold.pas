@@ -12,7 +12,7 @@ type
     ipcon: TIPConnection;
     lc: TBrickletLoadCell;
   public
-    procedure ReachedCB(sender: TBrickletLoadCell; const weight: LongInt);
+    procedure WeightReachedCB(sender: TBrickletLoadCell; const weight: longint);
     procedure Execute;
   end;
 
@@ -24,8 +24,8 @@ const
 var
   e: TExample;
 
-{ Callback for weight greater than 200 g }
-procedure TExample.ReachedCB(sender: TBrickletLoadCell; const weight: LongInt);
+{ Callback procedure for weight greater than 2 kg (parameter has unit g) }
+procedure TExample.WeightReachedCB(sender: TBrickletLoadCell; const weight: longint);
 begin
   WriteLn(Format('Weight: %f kg', [weight/1000.0]));
 end;
@@ -42,14 +42,14 @@ begin
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
-  { Get threshold callbacks with a debounce time of 10 seconds (10000ms) }
-  lc.SetDebouncePeriod(10000);
+  { Get threshold callbacks with a debounce time of 1 second (1000ms) }
+  lc.SetDebouncePeriod(1000);
 
-  { Register threshold reached callback to procedure ReachedCB }
-  lc.OnWeightReached := {$ifdef FPC}@{$endif}ReachedCB;
+  { Register threshold reached callback to procedure WeightReachedCB }
+  lc.OnWeightReached := {$ifdef FPC}@{$endif}WeightReachedCB;
 
-  { Configure threshold for "greater than 200 g" }
-  lc.SetWeightCallbackThreshold('>', 200, 0);
+  { Configure threshold for "greater than 2 kg" (unit is g) }
+  lc.SetWeightCallbackThreshold('>', 2*1000, 0);
 
   WriteLn('Press key to exit');
   ReadLn;

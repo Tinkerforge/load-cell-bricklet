@@ -12,7 +12,7 @@ type
     ipcon: TIPConnection;
     lc: TBrickletLoadCell;
   public
-    procedure WeightCB(sender: TBrickletLoadCell; const weight: LongInt);
+    procedure WeightCB(sender: TBrickletLoadCell; const weight: longint);
     procedure Execute;
   end;
 
@@ -24,8 +24,8 @@ const
 var
   e: TExample;
 
-{ Callback function for weight callback (parameter has unit g) }
-procedure TExample.WeightCB(sender: TBrickletLoadCell; const weight: LongInt);
+{ Callback procedure for weight callback (parameter has unit g) }
+procedure TExample.WeightCB(sender: TBrickletLoadCell; const weight: longint);
 begin
   WriteLn(Format('Weight: %f kg', [weight/1000.0]));
 end;
@@ -42,9 +42,9 @@ begin
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
-  { Set Period for weight callback to 1s (1000ms)
-    Note: The weight callback is only called every second if the
-          weight has changed since the last call! }
+  { Set period for weight callback to 1s (1000ms)
+    Note: The weight callback is only called every second
+          if the weight has changed since the last call! }
   lc.SetWeightCallbackPeriod(1000);
 
   { Register weight callback to procedure WeightCB }
