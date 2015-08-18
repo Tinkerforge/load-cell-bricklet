@@ -17,9 +17,9 @@ Module ExampleCallback
         ipcon.Connect(HOST, PORT) ' Connect to brickd
         ' Don't use device before ipcon is connected
 
-        ' Set Period for weight callback to 1s (1000ms)
-        ' Note: The weight callback is only called every second if the
-        '       weight has changed since the last call!
+        ' Set period for weight callback to 1s (1000ms)
+        ' Note: The weight callback is only called every second
+        '       if the weight has changed since the last call!
         lc.SetWeightCallbackPeriod(1000)
 
         ' Register weight callback to function WeightCB
