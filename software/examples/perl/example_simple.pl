@@ -14,8 +14,8 @@ $ipcon->connect(&HOST, &PORT); # Connect to brickd
 # Don't use device before ipcon is connected
 
 # Get current weight (unit is g)
-my $weight = $lc->get_weight()/1000.0;
-print "Weight: $weight kg\n";
+my $weight = $lc->get_weight();
+print "Weight: " . $weight/1000.0 . " kg\n";
 
 print "Press any key to exit...\n";
 <STDIN>;
