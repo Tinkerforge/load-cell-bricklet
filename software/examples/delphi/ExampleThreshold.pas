@@ -24,7 +24,7 @@ const
 var
   e: TExample;
 
-{ Callback procedure for weight greater than 2 kg (parameter has unit g) }
+{ Callback procedure for weight reached callback (parameter has unit g) }
 procedure TExample.WeightReachedCB(sender: TBrickletLoadCell; const weight: longint);
 begin
   WriteLn(Format('Weight: %f kg', [weight/1000.0]));
@@ -45,11 +45,11 @@ begin
   { Get threshold callbacks with a debounce time of 1 second (1000ms) }
   lc.SetDebouncePeriod(1000);
 
-  { Register threshold reached callback to procedure WeightReachedCB }
+  { Register weight reached callback to procedure WeightReachedCB }
   lc.OnWeightReached := {$ifdef FPC}@{$endif}WeightReachedCB;
 
-  { Configure threshold for "greater than 2 kg" (unit is g) }
-  lc.SetWeightCallbackThreshold('>', 2*1000, 0);
+  { Configure threshold for "greater than 200 g" (unit is g) }
+  lc.SetWeightCallbackThreshold('>', 200, 0);
 
   WriteLn('Press key to exit');
   ReadLn;

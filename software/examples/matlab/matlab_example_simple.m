@@ -16,6 +16,6 @@ function matlab_example_simple()
     weight = lc.getWeight();
     fprintf('Weight: %g kg\n', weight/1000.0);
 
-    input('Press any key to exit...\n', 's');
+    input('Press key to exit\n', 's');
     ipcon.disconnect();
 end

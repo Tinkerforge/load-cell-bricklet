@@ -40,18 +40,20 @@
                 // Don't use device before ipcon is connected
 
                 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
-                    function(connectReason) {
-                        // Get threshold callbacks with a debounce time of 10 seconds (10000ms)
-                        lc.setDebouncePeriod(10000);
-                        // Configure threshold for "greater than 200 g" (unit is g)
+                    function (connectReason) {
+                        // Get threshold callbacks with a debounce time of 1 second (1000ms)
+                        lc.setDebouncePeriod(1000);
+
+                        // Configure threshold for weight "greater than 200 g" (unit is g)
                         lc.setWeightCallbackThreshold('>', 200, 0);
                     }
                 );
-                // Register threshold reached callback to function cb_reached
+
+                // Register weight reached callback
                 lc.on(Tinkerforge.BrickletLoadCell.CALLBACK_WEIGHT_REACHED,
-                    // Callback for weight greater than 200 g
-                    function(weight) {
-                        textArea.value += 'Weight: ' + weight/1000 + ' kg\n';
+                    // Callback function for weight reached callback (parameter has unit g)
+                    function (weight) {
+                        textArea.value += 'Weight: ' + weight/1000.0 + ' kg\n';
                         textArea.scrollTop = textArea.scrollHeight;
                     }
                 );

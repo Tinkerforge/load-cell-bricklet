@@ -17,9 +17,8 @@ $ipcon->connect(HOST, PORT); // Connect to brickd
 // Don't use device before ipcon is connected
 
 // Get current weight (unit is g)
-$weight = $lc->getWeight() / 1000.0;
-
-echo "Weight: $weight kg\n";
+$weight = $lc->getWeight();
+echo "Weight: " . $weight/1000.0 . " kg\n";
 
 echo "Press key to exit\n";
 fgetc(fopen('php://stdin', 'r'));

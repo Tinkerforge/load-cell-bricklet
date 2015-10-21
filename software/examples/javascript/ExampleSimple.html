@@ -40,13 +40,13 @@
                 // Don't use device before ipcon is connected
 
                 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
-                    function(connectReason) {
+                    function (connectReason) {
                         // Get current weight (unit is g)
                         lc.getWeight(
-                            function(weight) {
-                                textArea.value += 'Weight: ' + weight/1000 + ' kg\n';
+                            function (weight) {
+                                textArea.value += 'Weight: ' + weight/1000.0 + ' kg\n';
                             },
-                            function(error) {
+                            function (error) {
                                 textArea.value += 'Error: ' + error + '\n';
                             }
                         );

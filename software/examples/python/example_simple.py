@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
     # Get current weight (unit is g)
     weight = lc.get_weight()
-    print('Weight: ' + str(weight/1000.0) + ' kg')
+    print("Weight: " + str(weight/1000.0) + " kg")
 
-    raw_input('Press key to exit\n') # Use input() in Python 3
+    raw_input("Press key to exit\n") # Use input() in Python 3
     ipcon.disconnect()

@@ -40,18 +40,19 @@
                 // Don't use device before ipcon is connected
 
                 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
-                    function(connectReason) {
-                        // Set Period for weight callback to 1s (1000ms)
-                        // Note: The weight callback is only called every second if the
-                        // weight has changed since the last call!
-                        al.setWeightCallbackPeriod(1000);
+                    function (connectReason) {
+                        // Set period for weight callback to 1s (1000ms)
+                        // Note: The weight callback is only called every second
+                        //       if the weight has changed since the last call!
+                        lc.setWeightCallbackPeriod(1000);
                     }
                 );
-                // Register position callback
+
+                // Register weight callback
                 lc.on(Tinkerforge.BrickletLoadCell.CALLBACK_WEIGHT,
                     // Callback function for weight callback (parameter has unit g)
-                    function(weight) {
-                        textArea.value += 'Weight: ' + weight/1000 + ' kg';
+                    function (weight) {
+                        textArea.value += 'Weight: ' + weight/1000.0 + ' kg\n';
                         textArea.scrollTop = textArea.scrollHeight;
                     }
                 );

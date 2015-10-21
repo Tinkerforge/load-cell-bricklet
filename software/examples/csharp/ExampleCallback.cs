@@ -1,3 +1,4 @@
+using System;
 using Tinkerforge;
 
 class Example
@@ -9,7 +10,7 @@ class Example
 	// Callback function for weight callback (parameter has unit g)
 	static void WeightCB(BrickletLoadCell sender, int weight)
 	{
-		System.Console.WriteLine("Weight: " + weight/1000.0 + " kg");
+		Console.WriteLine("Weight: " + weight/1000.0 + " kg");
 	}
 
 	static void Main()
@@ -20,16 +21,16 @@ class Example
 		ipcon.Connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
+		// Register weight callback to function WeightCB
+		lc.Weight += WeightCB;
+
 		// Set period for weight callback to 1s (1000ms)
 		// Note: The weight callback is only called every second
 		//       if the weight has changed since the last call!
 		lc.SetWeightCallbackPeriod(1000);
 
-		// Register weight callback to function WeightCB
-		lc.Weight += WeightCB;
-
-		System.Console.WriteLine("Press enter to exit");
-		System.Console.ReadLine();
+		Console.WriteLine("Press enter to exit");
+		Console.ReadLine();
 		ipcon.Disconnect();
 	}
 }

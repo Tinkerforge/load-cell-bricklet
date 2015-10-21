@@ -3,7 +3,7 @@ function octave_example_simple()
 
     HOST = "localhost";
     PORT = 4223;
-    UID = "amb"; % Change to your UID
+    UID = "XYZ"; % Change to your UID
 
     ipcon = java_new("com.tinkerforge.IPConnection"); % Create IP connection
     lc = java_new("com.tinkerforge.BrickletLoadCell", UID, ipcon); % Create device object
@@ -15,6 +15,6 @@ function octave_example_simple()
     weight = lc.getWeight();
     fprintf("Weight: %g kg\n", weight/1000.0);
 
-    input("Press any key to exit...\n", "s");
+    input("Press key to exit\n", "s");
     ipcon.disconnect();
 end

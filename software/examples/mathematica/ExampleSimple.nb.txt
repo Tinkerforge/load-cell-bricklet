@@ -3,17 +3,17 @@ LoadNETAssembly["Tinkerforge",NotebookDirectory[]<>"../../.."]
 
 host="localhost"
 port=4223
-uid="XYZ"(* Change to your UID *)
+uid="XYZ"(*Change to your UID*)
 
-(* Create IPConnection and device object *)
+(*Create IPConnection and device object*)
 ipcon=NETNew["Tinkerforge.IPConnection"]
 lc=NETNew["Tinkerforge.BrickletLoadCell",uid,ipcon]
 ipcon@Connect[host,port]
 
-(* Get current weight (unit is g) *)
-Print["Weight: "<>ToString[N[Quantity[lc@GetWeight[],"g"]]]]
+(*Get current weight (unit is g)*)
+Print["Weight: "<>ToString[N[Quantity[lc@GetWeight[],"kg/1000"]]]]
 
-(* Clean up *)
+(*Clean up*)
 ipcon@Disconnect[]
 ReleaseNETObject[lc]
 ReleaseNETObject[ipcon]

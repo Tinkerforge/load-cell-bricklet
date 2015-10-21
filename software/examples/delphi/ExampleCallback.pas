@@ -42,13 +42,13 @@ begin
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
+  { Register weight callback to procedure WeightCB }
+  lc.OnWeight := {$ifdef FPC}@{$endif}WeightCB;
+
   { Set period for weight callback to 1s (1000ms)
     Note: The weight callback is only called every second
           if the weight has changed since the last call! }
   lc.SetWeightCallbackPeriod(1000);
-
-  { Register weight callback to procedure WeightCB }
-  lc.OnWeight := {$ifdef FPC}@{$endif}WeightCB;
 
   WriteLn('Press key to exit');
   ReadLn;

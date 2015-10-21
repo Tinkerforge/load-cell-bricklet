@@ -7,10 +7,7 @@ use constant HOST => 'localhost';
 use constant PORT => 4223;
 use constant UID => 'XYZ'; # Change to your UID
 
-my $ipcon = Tinkerforge::IPConnection->new(); # Create IP connection
-my $lc = Tinkerforge::BrickletLoadCell->new(&UID, $ipcon); # Create device object
-
-# Callback subroutine for weight greater than 2 kg (parameter has unit g)
+# Callback subroutine for weight reached callback (parameter has unit g)
 sub cb_weight_reached
 {
     my ($weight) = @_;
@@ -18,18 +15,21 @@ sub cb_weight_reached
     print "Weight: " . $weight/1000.0 . " kg\n";
 }
 
+my $ipcon = Tinkerforge::IPConnection->new(); # Create IP connection
+my $lc = Tinkerforge::BrickletLoadCell->new(&UID, $ipcon); # Create device object
+
 $ipcon->connect(&HOST, &PORT); # Connect to brickd
 # Don't use device before ipcon is connected
 
 # Get threshold callbacks with a debounce time of 1 second (1000ms)
 $lc->set_debounce_period(1000);
 
-# Register threshold reached callback to subroutine cb_weight_reached
+# Register weight reached callback to subroutine cb_weight_reached
 $lc->register_callback($lc->CALLBACK_WEIGHT_REACHED, 'cb_weight_reached');
 
-# Configure threshold for "greater than 2 kg" (unit is g)
-$lc->set_weight_callback_threshold('>', 2*1000, 0);
+# Configure threshold for weight "greater than 200 g" (unit is g)
+$lc->set_weight_callback_threshold('>', 200, 0);
 
-print "Press any key to exit...\n";
+print "Press key to exit\n";
 <STDIN>;
 $ipcon->disconnect();

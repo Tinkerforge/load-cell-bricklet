@@ -1,3 +1,4 @@
+using System;
 using Tinkerforge;
 
 class Example
@@ -16,10 +17,10 @@ class Example
 
 		// Get current weight (unit is g)
 		int weight = lc.GetWeight();
-		System.Console.WriteLine("Weight: " + weight/1000.0 + " kg");
+		Console.WriteLine("Weight: " + weight/1000.0 + " kg");
 
-		System.Console.WriteLine("Press enter to exit");
-		System.Console.ReadLine();
+		Console.WriteLine("Press enter to exit");
+		Console.ReadLine();
 		ipcon.Disconnect();
 	}
 }

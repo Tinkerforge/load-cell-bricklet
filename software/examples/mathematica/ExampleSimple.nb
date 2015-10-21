@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      2843,         88]
-NotebookOptionsPosition[      2570,         74]
-NotebookOutlinePosition[      2908,         89]
-CellTagsIndexPosition[      2865,         86]
+NotebookDataLength[      2837,         89]
+NotebookOptionsPosition[      2563,         75]
+NotebookOutlinePosition[      2902,         90]
+CellTagsIndexPosition[      2859,         87]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -32,13 +32,13 @@ Cell[BoxData[{
  RowBox[{"port", "=", "4223"}], "\n", 
  RowBox[{
   RowBox[{"uid", "=", "\"\<XYZ\>\""}], 
-  RowBox[{"(*", " ", 
-   RowBox[{"Change", " ", "to", " ", "your", " ", "UID"}], " ", "*)"}], "\n", 
+  RowBox[{"(*", 
+   RowBox[{"Change", " ", "to", " ", "your", " ", "UID"}], "*)"}], "\n", 
   "\[IndentingNewLine]", 
-  RowBox[{"(*", " ", 
+  RowBox[{"(*", 
    RowBox[{
    "Create", " ", "IPConnection", " ", "and", " ", "device", " ", "object"}], 
-   " ", "*)"}]}], "\[IndentingNewLine]", 
+   "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{"ipcon", "=", 
   RowBox[{"NETNew", "[", "\"\<Tinkerforge.IPConnection\>\"", "]"}]}], "\n", 
  RowBox[{"lc", "=", 
@@ -48,11 +48,11 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"ipcon", "@", 
    RowBox[{"Connect", "[", 
-    RowBox[{"host", ",", "port"}], "]"}]}], "\[IndentingNewLine]", "\n", 
-  RowBox[{"(*", " ", 
+    RowBox[{"host", ",", "port"}], "]"}]}], "\n", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
    RowBox[{"Get", " ", "current", " ", "weight", " ", 
     RowBox[{"(", 
-     RowBox[{"unit", " ", "is", " ", "g"}], ")"}]}], " ", 
+     RowBox[{"unit", " ", "is", " ", "g"}], ")"}]}], 
    "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Print", "[", 
@@ -62,18 +62,19 @@ Cell[BoxData[{
       RowBox[{"Quantity", "[", 
        RowBox[{
         RowBox[{"lc", "@", 
-         RowBox[{"GetWeight", "[", "]"}]}], ",", "\"\<g\>\""}], "]"}], "]"}], 
-     "]"}]}], "]"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-  RowBox[{"(*", " ", 
-   RowBox[{"Clean", " ", "up"}], " ", "*)"}]}], "\n", 
+         RowBox[{"GetWeight", "[", "]"}]}], ",", "\"\<kg/1000\>\""}], "]"}], 
+      "]"}], "]"}]}], "]"}], "\n", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Clean", " ", "up"}], "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{"ipcon", "@", 
   RowBox[{"Disconnect", "[", "]"}]}], "\n", 
  RowBox[{"ReleaseNETObject", "[", "lc", "]"}], "\n", 
  RowBox[{"ReleaseNETObject", "[", "ipcon", "]"}]}], "Input",
- CellChangeTimes->{{3.643690525861888*^9, 3.64369053299509*^9}}]
+ CellChangeTimes->{{3.643690525861888*^9, 3.64369053299509*^9}, 
+   3.654429401203949*^9}]
 },
-WindowSize->{740, 867},
-WindowMargins->{{Automatic, 487}, {58, Automatic}},
+WindowSize->{1010, 864},
+WindowMargins->{{422, Automatic}, {57, Automatic}},
 FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
 StyleDefinitions->"Default.nb"
 ]
@@ -89,7 +90,7 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[557, 20, 318, 7, 55, "Input"],
-Cell[878, 29, 1688, 43, 363, "Input"]
+Cell[878, 29, 1681, 44, 363, "Input"]
 }
 ]
 *)

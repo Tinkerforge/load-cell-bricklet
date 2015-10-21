@@ -19,13 +19,13 @@ ipcon.connect HOST, PORT # Connect to brickd
 # Get threshold callbacks with a debounce time of 1 second (1000ms)
 lc.set_debounce_period 1000
 
-# Register threshold reached callback for weight greater than 2 kg (parameter has unit g)
+# Register weight reached callback (parameter has unit g)
 lc.register_callback(BrickletLoadCell::CALLBACK_WEIGHT_REACHED) do |weight|
   puts "Weight: #{weight/1000.0} kg"
 end
 
-# Configure threshold for "greater than 2 kg" (unit is g)
-lc.set_weight_callback_threshold '>', 2*1000, 0
+# Configure threshold for weight "greater than 200 g" (unit is g)
+lc.set_weight_callback_threshold '>', 200, 0
 
 puts 'Press key to exit'
 $stdin.gets

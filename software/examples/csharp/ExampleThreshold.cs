@@ -1,3 +1,4 @@
+using System;
 using Tinkerforge;
 
 class Example
@@ -6,10 +7,10 @@ class Example
 	private static int PORT = 4223;
 	private static string UID = "XYZ"; // Change to your UID
 
-	// Callback function for weight greater than 2 kg (parameter has unit g)
+	// Callback function for weight reached callback (parameter has unit g)
 	static void WeightReachedCB(BrickletLoadCell sender, int weight)
 	{
-		System.Console.WriteLine("Weight: " + weight/1000.0 + " kg");
+		Console.WriteLine("Weight: " + weight/1000.0 + " kg");
 	}
 
 	static void Main()
@@ -23,14 +24,14 @@ class Example
 		// Get threshold callbacks with a debounce time of 1 second (1000ms)
 		lc.SetDebouncePeriod(1000);
 
-		// Register threshold reached callback to function WeightReachedCB
+		// Register weight reached callback to function WeightReachedCB
 		lc.WeightReached += WeightReachedCB;
 
-		// Configure threshold for "greater than 2 kg" (unit is g)
-		lc.SetWeightCallbackThreshold('>', 2*1000, 0);
+		// Configure threshold for "greater than 200 g" (unit is g)
+		lc.SetWeightCallbackThreshold('>', 200, 0);
 
-		System.Console.WriteLine("Press enter to exit");
-		System.Console.ReadLine();
+		Console.WriteLine("Press enter to exit");
+		Console.ReadLine();
 		ipcon.Disconnect();
 	}
 }

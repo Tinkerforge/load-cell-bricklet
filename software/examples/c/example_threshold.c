@@ -7,7 +7,7 @@
 #define PORT 4223
 #define UID "XYZ" // Change to your UID
 
-// Callback function for weight greater than 2 kg (parameter has unit g)
+// Callback function for weight reached callback (parameter has unit g)
 void cb_weight_reached(int32_t weight, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
@@ -33,14 +33,14 @@ int main(void) {
 	// Get threshold callbacks with a debounce time of 1 second (1000ms)
 	load_cell_set_debounce_period(&lc, 1000);
 
-	// Register threshold reached callback to function cb_weight_reached
+	// Register weight reached callback to function cb_weight_reached
 	load_cell_register_callback(&lc,
 	                            LOAD_CELL_CALLBACK_WEIGHT_REACHED,
 	                            (void *)cb_weight_reached,
 	                            NULL);
 
-	// Configure threshold for "greater than 2 kg" (unit is g)
-	load_cell_set_weight_callback_threshold(&lc, '>', 2*1000, 0);
+	// Configure threshold for "greater than 200 g" (unit is g)
+	load_cell_set_weight_callback_threshold(&lc, '>', 200, 0);
 
 	printf("Press key to exit\n");
 	getchar();
