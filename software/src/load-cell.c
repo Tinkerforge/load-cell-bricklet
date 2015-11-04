@@ -175,7 +175,9 @@ void tick(const uint8_t tick_type) {
 			if(value & 0x800000) {
 				value |= 0xFF000000;
 			}
-			value = (1 << 24) - value;
+
+			// Shift from [-a..+b] to [0..2b+1]
+			value += 0x800000;
 
 			// 128x = 1 clock, 32x = 2 clock, 64x = 3 clock (see hx711 datasheet page 5, "next conversion")
 			switch(BC->current_gain) {
