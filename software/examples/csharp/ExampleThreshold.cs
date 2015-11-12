@@ -10,7 +10,7 @@ class Example
 	// Callback function for weight reached callback (parameter has unit g)
 	static void WeightReachedCB(BrickletLoadCell sender, int weight)
 	{
-		Console.WriteLine("Weight: " + weight/1000.0 + " kg");
+		Console.WriteLine("Weight: " + weight + " g");
 	}
 
 	static void Main()
@@ -27,7 +27,7 @@ class Example
 		// Register weight reached callback to function WeightReachedCB
 		lc.WeightReached += WeightReachedCB;
 
-		// Configure threshold for "greater than 200 g" (unit is g)
+		// Configure threshold for weight "greater than 200 g" (unit is g)
 		lc.SetWeightCallbackThreshold('>', 200, 0);
 
 		Console.WriteLine("Press enter to exit");

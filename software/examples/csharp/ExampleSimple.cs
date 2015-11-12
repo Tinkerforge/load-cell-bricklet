@@ -17,7 +17,7 @@ class Example
 
 		// Get current weight (unit is g)
 		int weight = lc.GetWeight();
-		Console.WriteLine("Weight: " + weight/1000.0 + " kg");
+		Console.WriteLine("Weight: " + weight + " g");
 
 		Console.WriteLine("Press enter to exit");
 		Console.ReadLine();

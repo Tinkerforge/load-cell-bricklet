@@ -18,7 +18,7 @@ ipcon.connect HOST, PORT # Connect to brickd
 
 # Register weight callback (parameter has unit g)
 lc.register_callback(BrickletLoadCell::CALLBACK_WEIGHT) do |weight|
-  puts "Weight: #{weight/1000.0} kg"
+  puts "Weight: #{weight} g"
 end
 
 # Set period for weight callback to 1s (1000ms)

@@ -18,7 +18,7 @@ ipcon.connect HOST, PORT # Connect to brickd
 
 # Get current weight (unit is g)
 weight = lc.get_weight
-puts "Weight: #{weight/1000.0} kg"
+puts "Weight: #{weight} g"
 
 puts 'Press key to exit'
 $stdin.gets

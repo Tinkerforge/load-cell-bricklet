@@ -28,7 +28,7 @@ ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
 lc.on(Tinkerforge.BrickletLoadCell.CALLBACK_WEIGHT_REACHED,
     // Callback function for weight reached callback (parameter has unit g)
     function (weight) {
-        console.log('Weight: ' + weight/1000.0 + ' kg');
+        console.log('Weight: ' + weight + ' g');
     }
 );
 

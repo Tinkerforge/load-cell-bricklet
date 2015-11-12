@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      4118,        122]
-NotebookOptionsPosition[      3844,        108]
-NotebookOutlinePosition[      4183,        123]
-CellTagsIndexPosition[      4140,        120]
+NotebookDataLength[      4113,        122]
+NotebookOptionsPosition[      3839,        108]
+NotebookOutlinePosition[      4178,        123]
+CellTagsIndexPosition[      4135,        120]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -60,25 +60,25 @@ Cell[BoxData[{
    "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"WeightCB", "[", 
-   RowBox[{"sender_", ",", "weight_"}], "]"}], ":=", "\[IndentingNewLine]", 
+   RowBox[{"sender_", ",", "weight_"}], "]"}], ":=", 
   RowBox[{"Print", "[", 
    RowBox[{"\"\<Weight: \>\"", "<>", 
     RowBox[{"ToString", "[", 
      RowBox[{"N", "[", 
       RowBox[{"Quantity", "[", 
-       RowBox[{"weight", ",", "\"\<kg/1000\>\""}], "]"}], "]"}], "]"}]}], 
+       RowBox[{"weight", ",", "\"\<g\>\""}], "]"}], "]"}], "]"}]}], 
    "]"}]}], "\n", 
  RowBox[{
   RowBox[{"AddEventHandler", "[", 
    RowBox[{
     RowBox[{"lc", "@", "Weight"}], ",", "WeightCB"}], "]"}], 
-  "\[IndentingNewLine]", "\n", 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{
    "Set", " ", "period", " ", "for", " ", "weight", " ", "callback", " ", 
     "to", " ", "1", "s", " ", 
     RowBox[{"(", 
-     RowBox[{"1000", "ms"}], ")"}]}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"1000", "ms"}], ")"}]}], "*)"}], "\n", 
   RowBox[{"(*", 
    RowBox[{"Note", ":", 
     RowBox[{
@@ -92,22 +92,22 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"lc", "@", 
    RowBox[{"SetWeightCallbackPeriod", "[", "1000", "]"}]}], 
-  "\n"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\n", 
  RowBox[{
-  RowBox[{"Input", "[", "\"\<Click OK to exit\>\"", "]"}], 
-  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"Input", "[", "\"\<Click OK to exit\>\"", "]"}], "\n", 
+  "\[IndentingNewLine]", 
   RowBox[{"(*", 
-   RowBox[{"Clean", " ", "up"}], "*)"}]}], "\n", 
+   RowBox[{"Clean", " ", "up"}], "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{"ipcon", "@", 
   RowBox[{"Disconnect", "[", "]"}]}], "\n", 
  RowBox[{"ReleaseNETObject", "[", "lc", "]"}], "\n", 
  RowBox[{"ReleaseNETObject", "[", "ipcon", "]"}]}], "Input",
  CellChangeTimes->{{3.643690300431685*^9, 3.643690344655931*^9}, {
-  3.6436904508915157`*^9, 3.643690458581874*^9}, {3.654429389107957*^9, 
-  3.6544293908196507`*^9}}]
+   3.6436904508915157`*^9, 3.643690458581874*^9}, {3.654429389107957*^9, 
+   3.6544293908196507`*^9}, 3.656325253463393*^9}]
 },
 WindowSize->{1390, 877},
-WindowMargins->{{Automatic, 194}, {56, Automatic}},
+WindowMargins->{{Automatic, 193}, {55, Automatic}},
 FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
 StyleDefinitions->"Default.nb"
 ]
@@ -123,7 +123,7 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[557, 20, 424, 9, 55, "Input"],
-Cell[984, 31, 2856, 75, 561, "Input"]
+Cell[984, 31, 2851, 75, 539, "Input"]
 }
 ]
 *)

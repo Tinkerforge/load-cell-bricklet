@@ -13,7 +13,7 @@ const UID = 'XYZ'; // Change to your UID
 // Callback function for weight reached callback (parameter has unit g)
 function cb_weightReached($weight)
 {
-    echo "Weight: " . $weight/1000.0 . " kg\n";
+    echo "Weight: $weight g\n";
 }
 
 $ipcon = new IPConnection(); // Create IP connection

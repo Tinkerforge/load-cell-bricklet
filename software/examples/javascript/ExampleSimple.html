@@ -44,7 +44,7 @@
                         // Get current weight (unit is g)
                         lc.getWeight(
                             function (weight) {
-                                textArea.value += 'Weight: ' + weight/1000.0 + ' kg\n';
+                                textArea.value += 'Weight: ' + weight + ' g\n';
                             },
                             function (error) {
                                 textArea.value += 'Error: ' + error + '\n';

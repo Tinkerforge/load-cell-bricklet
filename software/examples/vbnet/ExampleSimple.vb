@@ -15,7 +15,7 @@ Module ExampleSimple
 
         ' Get current weight (unit is g)
         Dim weight As Integer = lc.GetWeight()
-        Console.WriteLine("Weight: " + (weight/1000.0).ToString() + " kg")
+        Console.WriteLine("Weight: " + weight.ToString() + " g")
 
         Console.WriteLine("Press key to exit")
         Console.ReadLine()

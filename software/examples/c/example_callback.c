@@ -11,7 +11,7 @@
 void cb_weight(int32_t weight, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
-	printf("Weight: %f kg\n", weight/1000.0);
+	printf("Weight: %d g\n", weight);
 }
 
 int main(void) {

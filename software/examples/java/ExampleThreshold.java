@@ -21,7 +21,7 @@ public class ExampleThreshold {
 		// Add weight reached listener (parameter has unit g)
 		lc.addWeightReachedListener(new BrickletLoadCell.WeightReachedListener() {
 			public void weightReached(int weight) {
-				System.out.println("Weight: " + weight/1000.0 + " kg");
+				System.out.println("Weight: " + weight + " g");
 			}
 		});
 

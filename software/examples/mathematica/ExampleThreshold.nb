@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      4121,        122]
-NotebookOptionsPosition[      3847,        108]
-NotebookOutlinePosition[      4186,        123]
-CellTagsIndexPosition[      4143,        120]
+NotebookDataLength[      4164,        123]
+NotebookOptionsPosition[      3890,        109]
+NotebookOutlinePosition[      4229,        124]
+CellTagsIndexPosition[      4186,        121]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -74,7 +74,7 @@ Cell[BoxData[{
     RowBox[{"ToString", "[", 
      RowBox[{"N", "[", 
       RowBox[{"Quantity", "[", 
-       RowBox[{"weight", ",", "\"\<kg/1000\>\""}], "]"}], "]"}], "]"}]}], 
+       RowBox[{"weight", ",", "\"\<g\>\""}], "]"}], "]"}], "]"}]}], 
    "]"}]}], "\n", 
  RowBox[{
   RowBox[{"AddEventHandler", "[", 
@@ -104,10 +104,11 @@ Cell[BoxData[{
  RowBox[{"ReleaseNETObject", "[", "lc", "]"}], "\n", 
  RowBox[{"ReleaseNETObject", "[", "ipcon", "]"}]}], "Input",
  CellChangeTimes->{{3.643690610165655*^9, 3.643690654544404*^9}, {
-  3.654429370770526*^9, 3.654429375041519*^9}}]
+  3.654429370770526*^9, 3.654429375041519*^9}, {3.656325228754362*^9, 
+  3.656325231536379*^9}}]
 },
 WindowSize->{1333, 890},
-WindowMargins->{{134, Automatic}, {58, Automatic}},
+WindowMargins->{{133, Automatic}, {57, Automatic}},
 FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
 StyleDefinitions->"Default.nb"
 ]
@@ -123,7 +124,7 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[557, 20, 320, 7, 55, "Input"],
-Cell[880, 29, 2963, 77, 605, "Input"]
+Cell[880, 29, 3006, 78, 605, "Input"]
 }
 ]
 *)

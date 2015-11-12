@@ -27,7 +27,7 @@ var
 { Callback procedure for weight callback (parameter has unit g) }
 procedure TExample.WeightCB(sender: TBrickletLoadCell; const weight: longint);
 begin
-  WriteLn(Format('Weight: %f kg', [weight/1000.0]));
+  WriteLn(Format('Weight: %d g', [weight]));
 end;
 
 procedure TExample.Execute;

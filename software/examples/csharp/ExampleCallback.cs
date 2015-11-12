@@ -10,7 +10,7 @@ class Example
 	// Callback function for weight callback (parameter has unit g)
 	static void WeightCB(BrickletLoadCell sender, int weight)
 	{
-		Console.WriteLine("Weight: " + weight/1000.0 + " kg");
+		Console.WriteLine("Weight: " + weight + " g");
 	}
 
 	static void Main()

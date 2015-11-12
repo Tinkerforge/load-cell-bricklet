@@ -11,7 +11,7 @@
 void cb_weight_reached(int32_t weight, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
-	printf("Weight: %f kg\n", weight/1000.0);
+	printf("Weight: %d g\n", weight);
 }
 
 int main(void) {
@@ -39,7 +39,7 @@ int main(void) {
 	                            (void *)cb_weight_reached,
 	                            NULL);
 
-	// Configure threshold for "greater than 200 g" (unit is g)
+	// Configure threshold for weight "greater than 200 g" (unit is g)
 	load_cell_set_weight_callback_threshold(&lc, '>', 200, 0);
 
 	printf("Press key to exit\n");

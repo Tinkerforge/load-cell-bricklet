@@ -10,7 +10,7 @@ from tinkerforge.bricklet_load_cell import BrickletLoadCell
 
 # Callback function for weight callback (parameter has unit g)
 def cb_weight(weight):
-    print("Weight: " + str(weight/1000.0) + " kg")
+    print("Weight: " + str(weight) + " g")
 
 if __name__ == "__main__":
     ipcon = IPConnection() # Create IP connection

@@ -18,7 +18,7 @@ public class ExampleCallback {
 		// Add weight listener (parameter has unit g)
 		lc.addWeightListener(new BrickletLoadCell.WeightListener() {
 			public void weight(int weight) {
-				System.out.println("Weight: " + weight/1000.0 + " kg");
+				System.out.println("Weight: " + weight + " g");
 			}
 		});
 

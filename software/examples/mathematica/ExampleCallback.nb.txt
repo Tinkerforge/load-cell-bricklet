@@ -12,7 +12,7 @@ ipcon@Connect[host,port]
 
 (*Callback function for weight callback (parameter has unit g)*)
 WeightCB[sender_,weight_]:=
- Print["Weight: "<>ToString[N[Quantity[weight,"kg/1000"]]]]
+ Print["Weight: "<>ToString[N[Quantity[weight,"g"]]]]
 AddEventHandler[lc@Weight,WeightCB]
 
 (*Set period for weight callback to 1s (1000ms)*)

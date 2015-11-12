@@ -53,7 +53,7 @@
                 lc.on(Tinkerforge.BrickletLoadCell.CALLBACK_WEIGHT_REACHED,
                     // Callback function for weight reached callback (parameter has unit g)
                     function (weight) {
-                        textArea.value += 'Weight: ' + weight/1000.0 + ' kg\n';
+                        textArea.value += 'Weight: ' + weight + ' g\n';
                         textArea.scrollTop = textArea.scrollHeight;
                     }
                 );

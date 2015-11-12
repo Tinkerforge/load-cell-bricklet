@@ -13,7 +13,7 @@ function octave_example_simple()
 
     % Get current weight (unit is g)
     weight = lc.getWeight();
-    fprintf("Weight: %g kg\n", weight/1000.0);
+    fprintf("Weight: %d g\n", weight);
 
     input("Press key to exit\n", "s");
     ipcon.disconnect();

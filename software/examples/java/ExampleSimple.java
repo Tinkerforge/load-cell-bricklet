@@ -17,7 +17,7 @@ public class ExampleSimple {
 
 		// Get current weight (unit is g)
 		int weight = lc.getWeight(); // Can throw com.tinkerforge.TimeoutException
-		System.out.println("Weight: " + weight/1000.0 + " kg");
+		System.out.println("Weight: " + weight + " g");
 
 		System.out.println("Press key to exit"); System.in.read();
 		ipcon.disconnect();

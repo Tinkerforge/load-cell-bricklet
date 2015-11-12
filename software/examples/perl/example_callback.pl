@@ -12,7 +12,7 @@ sub cb_weight
 {
     my ($weight) = @_;
 
-    print "Weight: " . $weight/1000.0 . " kg\n";
+    print "Weight: $weight g\n";
 }
 
 my $ipcon = Tinkerforge::IPConnection->new(); # Create IP connection

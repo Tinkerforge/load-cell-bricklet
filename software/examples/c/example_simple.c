@@ -30,7 +30,7 @@ int main(void) {
 		return 1;
 	}
 
-	printf("Weight: %f kg\n", weight/1000.0);
+	printf("Weight: %d g\n", weight);
 
 	printf("Press key to exit\n");
 	getchar();

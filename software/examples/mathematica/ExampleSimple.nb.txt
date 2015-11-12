@@ -11,7 +11,7 @@ lc=NETNew["Tinkerforge.BrickletLoadCell",uid,ipcon]
 ipcon@Connect[host,port]
 
 (*Get current weight (unit is g)*)
-Print["Weight: "<>ToString[N[Quantity[lc@GetWeight[],"kg/1000"]]]]
+Print["Weight: "<>ToString[N[Quantity[lc@GetWeight[],"g"]]]]
 
 (*Clean up*)
 ipcon@Disconnect[]

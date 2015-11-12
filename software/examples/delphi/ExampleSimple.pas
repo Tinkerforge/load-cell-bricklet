@@ -38,7 +38,7 @@ begin
 
   { Get current weight (unit is g) }
   weight := lc.GetWeight;
-  WriteLn(Format('Weight: %f kg', [weight/1000.0]));
+  WriteLn(Format('Weight: %d g', [weight]));
 
   WriteLn('Press key to exit');
   ReadLn;

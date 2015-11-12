@@ -19,7 +19,7 @@ ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
         // Get current weight (unit is g)
         lc.getWeight(
             function (weight) {
-                console.log('Weight: ' + weight/1000.0 + ' kg');
+                console.log('Weight: ' + weight + ' g');
             },
             function (error) {
                 console.log('Error: ' + error);

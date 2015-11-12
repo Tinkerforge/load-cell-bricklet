@@ -26,5 +26,5 @@ end
 
 % Callback function for weight callback (parameter has unit g)
 function cb_weight(e)
-    fprintf('Weight: %g kg\n', e.weight/1000.0);
+    fprintf('Weight: %i g\n', e.weight);
 end

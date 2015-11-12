@@ -8,7 +8,7 @@ Module ExampleCallback
 
     ' Callback subroutine for weight callback (parameter has unit g)
     Sub WeightCB(ByVal sender As BrickletLoadCell, ByVal weight As Integer)
-        Console.WriteLine("Weight: " + (weight/1000.0).ToString() + " kg")
+        Console.WriteLine("Weight: " + weight.ToString() + " g")
     End Sub
 
     Sub Main()

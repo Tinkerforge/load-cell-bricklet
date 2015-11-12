@@ -21,7 +21,7 @@ lc.set_debounce_period 1000
 
 # Register weight reached callback (parameter has unit g)
 lc.register_callback(BrickletLoadCell::CALLBACK_WEIGHT_REACHED) do |weight|
-  puts "Weight: #{weight/1000.0} kg"
+  puts "Weight: #{weight} g"
 end
 
 # Configure threshold for weight "greater than 200 g" (unit is g)

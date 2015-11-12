@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      2837,         89]
-NotebookOptionsPosition[      2563,         75]
-NotebookOutlinePosition[      2902,         90]
-CellTagsIndexPosition[      2859,         87]
+NotebookDataLength[      2852,         89]
+NotebookOptionsPosition[      2578,         75]
+NotebookOutlinePosition[      2917,         90]
+CellTagsIndexPosition[      2874,         87]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -62,8 +62,8 @@ Cell[BoxData[{
       RowBox[{"Quantity", "[", 
        RowBox[{
         RowBox[{"lc", "@", 
-         RowBox[{"GetWeight", "[", "]"}]}], ",", "\"\<kg/1000\>\""}], "]"}], 
-      "]"}], "]"}]}], "]"}], "\n", "\[IndentingNewLine]", 
+         RowBox[{"GetWeight", "[", "]"}]}], ",", "\"\<g\>\""}], "]"}], "]"}], 
+     "]"}]}], "]"}], "\n", "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{"Clean", " ", "up"}], "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{"ipcon", "@", 
@@ -71,10 +71,10 @@ Cell[BoxData[{
  RowBox[{"ReleaseNETObject", "[", "lc", "]"}], "\n", 
  RowBox[{"ReleaseNETObject", "[", "ipcon", "]"}]}], "Input",
  CellChangeTimes->{{3.643690525861888*^9, 3.64369053299509*^9}, 
-   3.654429401203949*^9}]
+   3.654429401203949*^9, 3.656325244072228*^9}]
 },
 WindowSize->{1010, 864},
-WindowMargins->{{422, Automatic}, {57, Automatic}},
+WindowMargins->{{421, Automatic}, {56, Automatic}},
 FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
 StyleDefinitions->"Default.nb"
 ]
@@ -90,7 +90,7 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[557, 20, 318, 7, 55, "Input"],
-Cell[878, 29, 1681, 44, 363, "Input"]
+Cell[878, 29, 1696, 44, 363, "Input"]
 }
 ]
 *)
