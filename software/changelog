@@ -1,5 +1,5 @@
-2.0.0:
+2015-07-27: 2.0.0 (fcbd0a2)
 - Initial version
 
-2.0.1:
+2015-11-04: 2.0.1 (82698ef)
 - Fix inversion in weight calculation
