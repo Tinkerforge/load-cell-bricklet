@@ -1,7 +1,7 @@
 #!/bin/sh
 # Connects to localhost:4223 by default, use --host and --port to change this
 
-uid=XYZ # Change to your UID
+uid=XYZ # Change XYZ to the UID of your Load Cell Bricklet
 
 # Handle incoming weight callbacks (parameter has unit g)
 tinkerforge dispatch load-cell-bricklet $uid weight &

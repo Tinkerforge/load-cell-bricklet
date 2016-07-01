@@ -4,7 +4,7 @@ Imports Tinkerforge
 Module ExampleCallback
     Const HOST As String = "localhost"
     Const PORT As Integer = 4223
-    Const UID As String = "XYZ" ' Change to your UID
+    Const UID As String = "XYZ" ' Change XYZ to the UID of your Load Cell Bricklet
 
     ' Callback subroutine for weight callback (parameter has unit g)
     Sub WeightCB(ByVal sender As BrickletLoadCell, ByVal weight As Integer)

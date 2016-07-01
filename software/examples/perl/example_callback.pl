@@ -5,7 +5,7 @@ use Tinkerforge::BrickletLoadCell;
 
 use constant HOST => 'localhost';
 use constant PORT => 4223;
-use constant UID => 'XYZ'; # Change to your UID
+use constant UID => 'XYZ'; # Change XYZ to the UID of your Load Cell Bricklet
 
 # Callback subroutine for weight callback (parameter has unit g)
 sub cb_weight
