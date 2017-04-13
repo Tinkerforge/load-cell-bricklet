@@ -25,7 +25,7 @@ class Example
 		lc.SetDebouncePeriod(1000);
 
 		// Register weight reached callback to function WeightReachedCB
-		lc.WeightReached += WeightReachedCB;
+		lc.WeightReachedCallback += WeightReachedCB;
 
 		// Configure threshold for weight "greater than 200 g" (unit is g)
 		lc.SetWeightCallbackThreshold('>', 200, 0);
