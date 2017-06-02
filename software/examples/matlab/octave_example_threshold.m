@@ -5,8 +5,8 @@ function octave_example_threshold()
     PORT = 4223;
     UID = "XYZ"; % Change XYZ to the UID of your Load Cell Bricklet
 
-    ipcon = java_new("com.tinkerforge.IPConnection"); % Create IP connection
-    lc = java_new("com.tinkerforge.BrickletLoadCell", UID, ipcon); % Create device object
+    ipcon = javaObject("com.tinkerforge.IPConnection"); % Create IP connection
+    lc = javaObject("com.tinkerforge.BrickletLoadCell", UID, ipcon); % Create device object
 
     ipcon.connect(HOST, PORT); % Connect to brickd
     % Don't use device before ipcon is connected
