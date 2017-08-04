@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:tinkerforge
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -10,7 +11,6 @@ LIBS:cmos4000
 LIBS:adc-dac
 LIBS:memory
 LIBS:xilinx
-LIBS:special
 LIBS:microcontrollers
 LIBS:dsp
 LIBS:microchip
@@ -29,7 +29,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:tinkerforge
 LIBS:load-cell-cache
 EELAYER 25 0
 EELAYER END
@@ -45,8 +44,6 @@ Comment2 "Copyright (©) 2015, B.Nordmeyer <bastian@tinkerforge.com>"
 Comment3 ""
 Comment4 ""
 $EndDescr
-Wire Wire Line
-	2250 3100 2250 2950
 Wire Wire Line
 	2250 2950 2000 2950
 Wire Wire Line
@@ -170,7 +167,7 @@ U 1 1 4C5FD6ED
 P 4050 1700
 F 0 "C2" V 4150 1700 50  0000 L CNN
 F 1 "100nF" V 3900 1700 50  0000 L CNN
-F 2 "kicad-libraries:0603" H 4050 1700 60  0001 C CNN
+F 2 "kicad-libraries:C0603" H 4050 1700 60  0001 C CNN
 F 3 "" H 4050 1700 60  0001 C CNN
 	1    4050 1700
 	0    -1   -1   0   
@@ -208,12 +205,12 @@ $EndComp
 $Comp
 L GND #PWR03
 U 1 1 4C5FCF5E
-P 2250 3100
-F 0 "#PWR03" H 2250 3100 30  0001 C CNN
-F 1 "GND" H 2250 3030 30  0001 C CNN
-F 2 "" H 2250 3100 60  0001 C CNN
-F 3 "" H 2250 3100 60  0001 C CNN
-	1    2250 3100
+P 2250 3050
+F 0 "#PWR03" H 2250 3050 30  0001 C CNN
+F 1 "GND" H 2250 2980 30  0001 C CNN
+F 2 "" H 2250 3050 60  0001 C CNN
+F 3 "" H 2250 3050 60  0001 C CNN
+	1    2250 3050
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -255,7 +252,7 @@ U 1 1 54E7B01C
 P 2800 4150
 F 0 "R1" V 2700 4150 50  0000 C CNN
 F 1 "1k" V 2800 4150 50  0000 C CNN
-F 2 "kicad-libraries:0603" H 2800 4150 60  0001 C CNN
+F 2 "kicad-libraries:R0603" H 2800 4150 60  0001 C CNN
 F 3 "" H 2800 4150 60  0001 C CNN
 	1    2800 4150
 	0    1    1    0   
@@ -327,7 +324,7 @@ U 1 1 5511A5AF
 P 7550 1150
 F 0 "L2" V 7630 1150 50  0000 C CNN
 F 1 "FB0603-2" V 7450 1150 50  0000 C CNN
-F 2 "kicad-libraries:0603" H 7550 1150 60  0001 C CNN
+F 2 "kicad-libraries:C0603" H 7550 1150 60  0001 C CNN
 F 3 "" H 7550 1150 60  0000 C CNN
 	1    7550 1150
 	0    1    1    0   
@@ -338,7 +335,7 @@ U 1 1 5511AA6E
 P 8000 1350
 F 0 "C8" V 7850 1300 50  0000 L CNN
 F 1 "1µF" V 8150 1250 50  0000 L CNN
-F 2 "kicad-libraries:0603" H 8000 1350 60  0001 C CNN
+F 2 "kicad-libraries:C0603" H 8000 1350 60  0001 C CNN
 F 3 "" H 8000 1350 60  0001 C CNN
 	1    8000 1350
 	1    0    0    -1  
@@ -406,7 +403,7 @@ U 1 1 5511B80D
 P 5250 2150
 F 0 "C6" V 5100 2100 50  0000 L CNN
 F 1 "100nF" V 5400 2050 50  0000 L CNN
-F 2 "kicad-libraries:0603" H 5250 2150 60  0001 C CNN
+F 2 "kicad-libraries:C0603" H 5250 2150 60  0001 C CNN
 F 3 "" H 5250 2150 60  0001 C CNN
 	1    5250 2150
 	0    1    1    0   
@@ -417,7 +414,7 @@ U 1 1 5511B95F
 P 5650 2900
 F 0 "C7" V 5500 2850 50  0000 L CNN
 F 1 "100nF" V 5800 2800 50  0000 L CNN
-F 2 "kicad-libraries:0603" H 5650 2900 60  0001 C CNN
+F 2 "kicad-libraries:C0603" H 5650 2900 60  0001 C CNN
 F 3 "" H 5650 2900 60  0001 C CNN
 	1    5650 2900
 	1    0    0    -1  
@@ -466,7 +463,7 @@ U 1 1 5511CCEA
 P 5250 1750
 F 0 "C5" V 5100 1700 50  0000 L CNN
 F 1 "100nF" V 5400 1650 50  0000 L CNN
-F 2 "kicad-libraries:0603" H 5250 1750 60  0001 C CNN
+F 2 "kicad-libraries:C0603" H 5250 1750 60  0001 C CNN
 F 3 "" H 5250 1750 60  0001 C CNN
 	1    5250 1750
 	0    1    1    0   
@@ -577,10 +574,10 @@ U 1 1 551AC79D
 P 3000 5700
 F 0 "L1" V 2950 5700 40  0000 C CNN
 F 1 "1µH" V 3100 5700 40  0000 C CNN
-F 2 "kicad-libraries:0805" H 3000 5700 60  0001 C CNN
+F 2 "kicad-libraries:C0805" H 3000 5700 60  0001 C CNN
 F 3 "" H 3000 5700 60  0000 C CNN
 	1    3000 5700
-	0    1    1    0   
+	-1   0    0    1   
 $EndComp
 Text Notes 2750 6300 0    60   ~ 0
 z.B. LQM21PN1R0MC0
@@ -590,7 +587,7 @@ U 1 1 551AD036
 P 2300 5800
 F 0 "C1" V 2150 5750 50  0000 L CNN
 F 1 "2.2µF" V 2450 5700 50  0000 L CNN
-F 2 "kicad-libraries:0603" H 2300 5800 60  0001 C CNN
+F 2 "kicad-libraries:C0603" H 2300 5800 60  0001 C CNN
 F 3 "" H 2300 5800 60  0001 C CNN
 	1    2300 5800
 	-1   0    0    1   
@@ -625,7 +622,7 @@ U 1 1 551ADFBA
 P 4650 5800
 F 0 "C3" V 4500 5750 50  0000 L CNN
 F 1 "4.7µF" V 4800 5700 50  0000 L CNN
-F 2 "kicad-libraries:0603" H 4650 5800 60  0001 C CNN
+F 2 "kicad-libraries:C0603" H 4650 5800 60  0001 C CNN
 F 3 "" H 4650 5800 60  0001 C CNN
 	1    4650 5800
 	-1   0    0    1   
@@ -695,7 +692,7 @@ U 1 1 551AED85
 P 5050 5800
 F 0 "C4" V 4900 5750 50  0000 L CNN
 F 1 "100nF" V 5200 5700 50  0000 L CNN
-F 2 "kicad-libraries:0603" H 5050 5800 60  0001 C CNN
+F 2 "kicad-libraries:C0603" H 5050 5800 60  0001 C CNN
 F 3 "" H 5050 5800 60  0001 C CNN
 	1    5050 5800
 	1    0    0    -1  
@@ -777,4 +774,6 @@ F 3 "" H 6550 4000 60  0000 C CNN
 	1    6550 4000
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	2250 2950 2250 3050
 $EndSCHEMATC
