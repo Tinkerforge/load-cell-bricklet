@@ -10,7 +10,7 @@ tinkerforge call load-cell-bricklet $uid set-debounce-period 1000
 tinkerforge dispatch load-cell-bricklet $uid weight-reached &
 
 # Configure threshold for weight "greater than 200 g" (unit is g)
-tinkerforge call load-cell-bricklet $uid set-weight-callback-threshold greater 200 0
+tinkerforge call load-cell-bricklet $uid set-weight-callback-threshold threshold-option-greater 200 0
 
 echo "Press key to exit"; read dummy
 
