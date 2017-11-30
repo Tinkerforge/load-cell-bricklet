@@ -16,7 +16,7 @@ lc@SetDebouncePeriod[1000]
 (*Callback function for weight reached callback (parameter has unit g)*)
 WeightReachedCB[sender_,weight_]:=
  Print["Weight: "<>ToString[N[Quantity[weight,"g"]]]]
-AddEventHandler[lc@WeightReached,WeightReachedCB]
+AddEventHandler[lc@WeightReachedCallback,WeightReachedCB]
 
 (*Configure threshold for weight "greater than 200 g" (unit is g)*)
 option=Tinkerforge`BrickletLoadCell`THRESHOLDUOPTIONUGREATER

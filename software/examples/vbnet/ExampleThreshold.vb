@@ -22,7 +22,7 @@ Module ExampleThreshold
         lc.SetDebouncePeriod(1000)
 
         ' Register weight reached callback to subroutine WeightReachedCB
-        AddHandler lc.WeightReached, AddressOf WeightReachedCB
+        AddHandler lc.WeightReachedCallback, AddressOf WeightReachedCB
 
         ' Configure threshold for weight "greater than 200 g" (unit is g)
         lc.SetWeightCallbackThreshold(">"C, 200, 0)

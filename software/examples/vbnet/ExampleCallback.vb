@@ -19,7 +19,7 @@ Module ExampleCallback
         ' Don't use device before ipcon is connected
 
         ' Register weight callback to subroutine WeightCB
-        AddHandler lc.Weight, AddressOf WeightCB
+        AddHandler lc.WeightCallback, AddressOf WeightCB
 
         ' Set period for weight callback to 1s (1000ms)
         ' Note: The weight callback is only called every second
