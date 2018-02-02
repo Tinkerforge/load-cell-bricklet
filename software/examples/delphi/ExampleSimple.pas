@@ -36,7 +36,7 @@ begin
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
-  { Get current weight (unit is g) }
+  { Get current weight }
   weight := lc.GetWeight;
   WriteLn(Format('Weight: %d g', [weight]));
 

@@ -13,7 +13,7 @@ Module ExampleSimple
         ipcon.Connect(HOST, PORT) ' Connect to brickd
         ' Don't use device before ipcon is connected
 
-        ' Get current weight (unit is g)
+        ' Get current weight
         Dim weight As Integer = lc.GetWeight()
         Console.WriteLine("Weight: " + weight.ToString() + " g")
 

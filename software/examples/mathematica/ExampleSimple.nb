@@ -18,7 +18,7 @@ Notebook[{
    RowBox[{"ipcon", "@", RowBox[{"Connect", "[", RowBox[{"host", ",", "port"}], "]"}]}],
    RowBox[{"
 "}],
-   RowBox[{"(*", "Get current weight (unit is g)", "*)"}],
+   RowBox[{"(*", "Get current weight", "*)"}],
    RowBox[{"Print", "[", RowBox[{"\"\<Weight: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{RowBox[{"lc", "@", RowBox[{"GetWeight", "[", "]"}]}], ",", "\"\<g\>\""}], "]"}], "]"}], "]"}]}], "]"}],
    RowBox[{"
 "}],

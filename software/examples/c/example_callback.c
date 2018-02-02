@@ -7,7 +7,7 @@
 #define PORT 4223
 #define UID "XYZ" // Change XYZ to the UID of your Load Cell Bricklet
 
-// Callback function for weight callback (parameter has unit g)
+// Callback function for weight callback
 void cb_weight(int32_t weight, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 

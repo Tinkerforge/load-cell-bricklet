@@ -3,7 +3,7 @@
 
 uid=XYZ # Change XYZ to the UID of your Load Cell Bricklet
 
-# Handle incoming weight callbacks (parameter has unit g)
+# Handle incoming weight callbacks
 tinkerforge dispatch load-cell-bricklet $uid weight &
 
 # Set period for weight callback to 1s (1000ms)

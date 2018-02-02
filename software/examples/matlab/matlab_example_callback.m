@@ -24,7 +24,7 @@ function matlab_example_callback()
     ipcon.disconnect();
 end
 
-% Callback function for weight callback (parameter has unit g)
+% Callback function for weight callback
 function cb_weight(e)
     fprintf('Weight: %i g\n', e.weight);
 end

@@ -16,7 +16,7 @@ ipcon.connect(HOST, PORT,
 
 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
     function (connectReason) {
-        // Get current weight (unit is g)
+        // Get current weight
         lc.getWeight(
             function (weight) {
                 console.log('Weight: ' + weight + ' g');

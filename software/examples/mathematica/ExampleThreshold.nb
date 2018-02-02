@@ -22,12 +22,12 @@ Notebook[{
    RowBox[{"lc", "@", RowBox[{"SetDebouncePeriod", "[", "1000", "]"}]}],
    RowBox[{"
 "}],
-   RowBox[{"(*", "Callback function for weight reached callback (parameter has unit g)", "*)"}],
+   RowBox[{"(*", "Callback function for weight reached callback", "*)"}],
    RowBox[{RowBox[{"WeightReachedCB", "[", RowBox[{"sender_", ",", "weight_"}], "]"}], ":=", "\[IndentingNewLine]", RowBox[{"Print", "[", RowBox[{"\"\<Weight: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"weight", ",", "\"\<g\>\""}], "]"}], "]"}], "]"}]}], "]"}]}],
    RowBox[{"AddEventHandler", "[", RowBox[{RowBox[{"lc", "@", "WeightReachedCallback"}], ",", "WeightReachedCB"}], "]"}],
    RowBox[{"
 "}],
-   RowBox[{"(*", "Configure threshold for weight ", "\"\<greater than 200 g\>\"", " (unit is g)", "*)"}],
+   RowBox[{"(*", "Configure threshold for weight ", "\"\<greater than 200 g\>\"", "", "*)"}],
    RowBox[{"option", "=", "Tinkerforge`BrickletLoadCell`THRESHOLDUOPTIONUGREATER"}],
    RowBox[{"lc", "@", RowBox[{"SetWeightCallbackThreshold", "[", RowBox[{"option", ",", "200", ",", "0"}], "]"}]}],
    RowBox[{"

@@ -23,7 +23,7 @@ function octave_example_callback()
     ipcon.disconnect();
 end
 
-% Callback function for weight callback (parameter has unit g)
+% Callback function for weight callback
 function cb_weight(e)
     fprintf("Weight: %d g\n", e.weight);
 end

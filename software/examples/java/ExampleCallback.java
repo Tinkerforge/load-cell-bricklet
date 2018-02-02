@@ -17,7 +17,7 @@ public class ExampleCallback {
 		ipcon.connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Add weight listener (parameter has unit g)
+		// Add weight listener
 		lc.addWeightListener(new BrickletLoadCell.WeightListener() {
 			public void weight(int weight) {
 				System.out.println("Weight: " + weight + " g");

@@ -6,7 +6,7 @@ Module ExampleThreshold
     Const PORT As Integer = 4223
     Const UID As String = "XYZ" ' Change XYZ to the UID of your Load Cell Bricklet
 
-    ' Callback subroutine for weight reached callback (parameter has unit g)
+    ' Callback subroutine for weight reached callback
     Sub WeightReachedCB(ByVal sender As BrickletLoadCell, ByVal weight As Integer)
         Console.WriteLine("Weight: " + weight.ToString() + " g")
     End Sub
@@ -24,7 +24,7 @@ Module ExampleThreshold
         ' Register weight reached callback to subroutine WeightReachedCB
         AddHandler lc.WeightReachedCallback, AddressOf WeightReachedCB
 
-        ' Configure threshold for weight "greater than 200 g" (unit is g)
+        ' Configure threshold for weight "greater than 200 g"
         lc.SetWeightCallbackThreshold(">"C, 200, 0)
 
         Console.WriteLine("Press key to exit")

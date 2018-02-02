@@ -17,7 +17,7 @@ public class ExampleSimple {
 		ipcon.connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Get current weight (unit is g)
+		// Get current weight
 		int weight = lc.getWeight(); // Can throw com.tinkerforge.TimeoutException
 		System.out.println("Weight: " + weight + " g");
 

@@ -12,7 +12,7 @@ function matlab_example_simple()
     ipcon.connect(HOST, PORT); % Connect to brickd
     % Don't use device before ipcon is connected
 
-    % Get current weight (unit is g)
+    % Get current weight
     weight = lc.getWeight();
     fprintf('Weight: %i g\n', weight);
 

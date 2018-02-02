@@ -23,7 +23,7 @@ int main(void) {
 	}
 	// Don't use device before ipcon is connected
 
-	// Get current weight (unit is g)
+	// Get current weight
 	int32_t weight;
 	if(load_cell_get_weight(&lc, &weight) < 0) {
 		fprintf(stderr, "Could not get weight, probably timeout\n");

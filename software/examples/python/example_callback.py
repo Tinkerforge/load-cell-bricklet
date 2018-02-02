@@ -8,7 +8,7 @@ UID = "XYZ" # Change XYZ to the UID of your Load Cell Bricklet
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_load_cell import BrickletLoadCell
 
-# Callback function for weight callback (parameter has unit g)
+# Callback function for weight callback
 def cb_weight(weight):
     print("Weight: " + str(weight) + " g")
 

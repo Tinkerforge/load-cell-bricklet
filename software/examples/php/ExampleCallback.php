@@ -10,7 +10,7 @@ const HOST = 'localhost';
 const PORT = 4223;
 const UID = 'XYZ'; // Change XYZ to the UID of your Load Cell Bricklet
 
-// Callback function for weight callback (parameter has unit g)
+// Callback function for weight callback
 function cb_weight($weight)
 {
     echo "Weight: $weight g\n";

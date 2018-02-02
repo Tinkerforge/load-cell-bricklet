@@ -20,14 +20,14 @@ public class ExampleThreshold {
 		// Get threshold callbacks with a debounce time of 1 second (1000ms)
 		lc.setDebouncePeriod(1000);
 
-		// Add weight reached listener (parameter has unit g)
+		// Add weight reached listener
 		lc.addWeightReachedListener(new BrickletLoadCell.WeightReachedListener() {
 			public void weightReached(int weight) {
 				System.out.println("Weight: " + weight + " g");
 			}
 		});
 
-		// Configure threshold for weight "greater than 200 g" (unit is g)
+		// Configure threshold for weight "greater than 200 g"
 		lc.setWeightCallbackThreshold('>', 200, 0);
 
 		System.out.println("Press key to exit"); System.in.read();

@@ -15,7 +15,7 @@ if __name__ == "__main__":
     ipcon.connect(HOST, PORT) # Connect to brickd
     # Don't use device before ipcon is connected
 
-    # Get current weight (unit is g)
+    # Get current weight
     weight = lc.get_weight()
     print("Weight: " + str(weight) + " g")
 

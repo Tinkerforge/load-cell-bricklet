@@ -10,7 +10,7 @@ ipcon=NETNew["Tinkerforge.IPConnection"]
 lc=NETNew["Tinkerforge.BrickletLoadCell",uid,ipcon]
 ipcon@Connect[host,port]
 
-(*Callback function for weight callback (parameter has unit g)*)
+(*Callback function for weight callback*)
 WeightCB[sender_,weight_]:=
  Print["Weight: "<>ToString[N[Quantity[weight,"g"]]]]
 AddEventHandler[lc@WeightCallback,WeightCB]

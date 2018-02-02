@@ -10,7 +10,7 @@ const HOST = 'localhost';
 const PORT = 4223;
 const UID = 'XYZ'; // Change XYZ to the UID of your Load Cell Bricklet
 
-// Callback function for weight reached callback (parameter has unit g)
+// Callback function for weight reached callback
 function cb_weightReached($weight)
 {
     echo "Weight: $weight g\n";
@@ -28,7 +28,7 @@ $lc->setDebouncePeriod(1000);
 // Register weight reached callback to function cb_weightReached
 $lc->registerCallback(BrickletLoadCell::CALLBACK_WEIGHT_REACHED, 'cb_weightReached');
 
-// Configure threshold for weight "greater than 200 g" (unit is g)
+// Configure threshold for weight "greater than 200 g"
 $lc->setWeightCallbackThreshold('>', 200, 0);
 
 echo "Press ctrl+c to exit\n";

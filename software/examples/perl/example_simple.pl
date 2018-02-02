@@ -13,7 +13,7 @@ my $lc = Tinkerforge::BrickletLoadCell->new(&UID, $ipcon); # Create device objec
 $ipcon->connect(&HOST, &PORT); # Connect to brickd
 # Don't use device before ipcon is connected
 
-# Get current weight (unit is g)
+# Get current weight
 my $weight = $lc->get_weight();
 print "Weight: $weight g\n";
 

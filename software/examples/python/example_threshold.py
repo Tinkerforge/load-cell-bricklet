@@ -8,7 +8,7 @@ UID = "XYZ" # Change XYZ to the UID of your Load Cell Bricklet
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_load_cell import BrickletLoadCell
 
-# Callback function for weight reached callback (parameter has unit g)
+# Callback function for weight reached callback
 def cb_weight_reached(weight):
     print("Weight: " + str(weight) + " g")
 
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     # Register weight reached callback to function cb_weight_reached
     lc.register_callback(lc.CALLBACK_WEIGHT_REACHED, cb_weight_reached)
 
-    # Configure threshold for weight "greater than 200 g" (unit is g)
+    # Configure threshold for weight "greater than 200 g"
     lc.set_weight_callback_threshold(">", 200, 0)
 
     raw_input("Press key to exit\n") # Use input() in Python 3

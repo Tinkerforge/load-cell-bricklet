@@ -16,7 +16,7 @@ $lc = new BrickletLoadCell(UID, $ipcon); // Create device object
 $ipcon->connect(HOST, PORT); // Connect to brickd
 // Don't use device before ipcon is connected
 
-// Get current weight (unit is g)
+// Get current weight
 $weight = $lc->getWeight();
 echo "Weight: $weight g\n";
 

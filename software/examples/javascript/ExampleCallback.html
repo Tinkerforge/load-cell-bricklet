@@ -50,7 +50,7 @@
 
                 // Register weight callback
                 lc.on(Tinkerforge.BrickletLoadCell.CALLBACK_WEIGHT,
-                    // Callback function for weight callback (parameter has unit g)
+                    // Callback function for weight callback
                     function (weight) {
                         textArea.value += 'Weight: ' + weight + ' g\n';
                         textArea.scrollTop = textArea.scrollHeight;

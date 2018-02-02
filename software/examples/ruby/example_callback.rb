@@ -16,7 +16,7 @@ lc = BrickletLoadCell.new UID, ipcon # Create device object
 ipcon.connect HOST, PORT # Connect to brickd
 # Don't use device before ipcon is connected
 
-# Register weight callback (parameter has unit g)
+# Register weight callback
 lc.register_callback(BrickletLoadCell::CALLBACK_WEIGHT) do |weight|
   puts "Weight: #{weight} g"
 end

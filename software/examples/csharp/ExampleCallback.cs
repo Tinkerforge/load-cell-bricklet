@@ -7,7 +7,7 @@ class Example
 	private static int PORT = 4223;
 	private static string UID = "XYZ"; // Change XYZ to the UID of your Load Cell Bricklet
 
-	// Callback function for weight callback (parameter has unit g)
+	// Callback function for weight callback
 	static void WeightCB(BrickletLoadCell sender, int weight)
 	{
 		Console.WriteLine("Weight: " + weight + " g");

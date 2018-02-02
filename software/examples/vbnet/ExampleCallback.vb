@@ -6,7 +6,7 @@ Module ExampleCallback
     Const PORT As Integer = 4223
     Const UID As String = "XYZ" ' Change XYZ to the UID of your Load Cell Bricklet
 
-    ' Callback subroutine for weight callback (parameter has unit g)
+    ' Callback subroutine for weight callback
     Sub WeightCB(ByVal sender As BrickletLoadCell, ByVal weight As Integer)
         Console.WriteLine("Weight: " + weight.ToString() + " g")
     End Sub
