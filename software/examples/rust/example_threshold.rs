@@ -1,32 +1,33 @@
 use std::{error::Error, io, thread};
-use tinkerforge::{ipconnection::IpConnection, load_cell_bricklet::*};
+use tinkerforge::{ip_connection::IpConnection, load_cell_bricklet::*};
 
-const HOST: &str = "127.0.0.1";
+const HOST: &str = "localhost";
 const PORT: u16 = 4223;
-const UID: &str = "XYZ"; // Change XYZ to the UID of your Load Cell Bricklet
+const UID: &str = "XYZ"; // Change XYZ to the UID of your Load Cell Bricklet.
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let ipcon = IpConnection::new(); // Create IP connection
-    let load_cell_bricklet = LoadCellBricklet::new(UID, &ipcon); // Create device object
+    let ipcon = IpConnection::new(); // Create IP connection.
+    let lc = LoadCellBricklet::new(UID, &ipcon); // Create device object.
 
-    ipcon.connect(HOST, PORT).recv()??; // Connect to brickd
-                                        // Don't use device before ipcon is connected
+    ipcon.connect((HOST, PORT)).recv()??; // Connect to brickd.
+                                          // Don't use device before ipcon is connected.
 
-    // Get threshold listeners with a debounce time of 1 second (1000ms)
-    load_cell_bricklet.set_debounce_period(1000);
+    // Get threshold receivers with a debounce time of 1 second (1000ms).
+    lc.set_debounce_period(1000);
 
-    //Create listener for weight reached events.
-    let weight_reached_listener = load_cell_bricklet.get_weight_reached_receiver();
-    // Spawn thread to handle received events. This thread ends when the load_cell_bricklet
+    // Create receiver for weight reached events.
+    let weight_reached_receiver = lc.get_weight_reached_receiver();
+
+    // Spawn thread to handle received events. This thread ends when the `lc` object
     // is dropped, so there is no need for manual cleanup.
     thread::spawn(move || {
-        for event in weight_reached_listener {
-            println!("Weight: {}{}", event, " g");
+        for weight_reached in weight_reached_receiver {
+            println!("Weight: {} g", weight_reached);
         }
     });
 
-    // Configure threshold for weight "greater than 200 g"
-    load_cell_bricklet.set_weight_callback_threshold('>', 200, 0);
+    // Configure threshold for weight "greater than 200 g".
+    lc.set_weight_callback_threshold('>', 200, 0);
 
     println!("Press enter to exit.");
     let mut _input = String::new();
