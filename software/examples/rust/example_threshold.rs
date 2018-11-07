@@ -15,10 +15,10 @@ fn main() -> Result<(), Box<dyn Error>> {
     // Get threshold receivers with a debounce time of 1 second (1000ms).
     lc.set_debounce_period(1000);
 
-    // Create receiver for weight reached events.
-    let weight_reached_receiver = lc.get_weight_reached_receiver();
+    let weight_reached_receiver = lc.get_weight_reached_callback_receiver();
 
-    // Spawn thread to handle received events. This thread ends when the `lc` object
+    // Spawn thread to handle received callback messages.
+    // This thread ends when the `lc` object
     // is dropped, so there is no need for manual cleanup.
     thread::spawn(move || {
         for weight_reached in weight_reached_receiver {
