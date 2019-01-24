@@ -1,0 +1,8 @@
+
+
+# Change XYZ to the UID of your Load Cell Bricklet
+
+setup:
+	# Get current weight
+	subscribe to tinkerforge/response/load_cell/XYZ/get_weight
+	publish '' to tinkerforge/request/load_cell_bricklet/XYZ/get_weight 

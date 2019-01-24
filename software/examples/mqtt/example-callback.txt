@@ -1,0 +1,12 @@
+
+
+# Change XYZ to the UID of your Load Cell Bricklet
+
+setup:
+	# Handle incoming weight callbacks
+	subscribe to tinkerforge/callback/load_cell_bricklet/XYZ/weight
+	publish '{"register": true}' to tinkerforge/register/load_cell_bricklet/XYZ/weight # Register weight callback
+	# Set period for weight callback to 1s (1000ms)
+	# Note: The weight callback is only called every second
+	#       if the weight has changed since the last call!
+	publish '{"period": 1000}' to tinkerforge/request/load_cell_bricklet/XYZ/set_weight_callback_period
