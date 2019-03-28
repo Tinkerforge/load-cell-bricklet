@@ -3,4 +3,4 @@
 setup:
 	# Get current weight
 	subscribe to tinkerforge/response/load_cell_bricklet/XYZ/get_weight
-	publish '' to tinkerforge/request/load_cell_bricklet/XYZ/get_weight 
+	publish '' to tinkerforge/request/load_cell_bricklet/XYZ/get_weight
