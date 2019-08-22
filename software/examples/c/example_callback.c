@@ -33,7 +33,7 @@ int main(void) {
 	// Register weight callback to function cb_weight
 	load_cell_register_callback(&lc,
 	                            LOAD_CELL_CALLBACK_WEIGHT,
-	                            (void *)cb_weight,
+	                            (void (*)(void))cb_weight,
 	                            NULL);
 
 	// Set period for weight callback to 1s (1000ms)

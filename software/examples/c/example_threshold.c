@@ -36,7 +36,7 @@ int main(void) {
 	// Register weight reached callback to function cb_weight_reached
 	load_cell_register_callback(&lc,
 	                            LOAD_CELL_CALLBACK_WEIGHT_REACHED,
-	                            (void *)cb_weight_reached,
+	                            (void (*)(void))cb_weight_reached,
 	                            NULL);
 
 	// Configure threshold for weight "greater than 200 g"
