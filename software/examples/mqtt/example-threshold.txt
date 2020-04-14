@@ -2,7 +2,7 @@
 
 setup:
 	# Get threshold callbacks with a debounce time of 1 second (1000ms)
-	publish '{"debounce": 1000}' to tinkerforge/request/load-cell_bricklet/XYZ/set_debounce_period
+	publish '{"debounce": 1000}' to tinkerforge/request/load_cell_bricklet/XYZ/set_debounce_period
 
 	# Handle incoming weight reached callbacks
 	subscribe to tinkerforge/callback/load_cell_bricklet/XYZ/weight_reached
