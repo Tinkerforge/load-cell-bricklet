@@ -20,7 +20,7 @@ func main() {
 
 	// Get current weight.
 	weight, _ := lc.GetWeight()
-	fmt.Printf("Weight:  g\n", weight)
+	fmt.Printf("Weight: %d g\n", weight)
 
 	fmt.Print("Press enter to exit.")
 	fmt.Scanln()
